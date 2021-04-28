@@ -1,5 +1,5 @@
 {
-  "name": "ESFA Help Centre 0104 v2 - Master",
+  "name": "2804 ESFA Help Centre 0104 v2 - Master",
   "author": "Zendesk",
   "version": "12",
   "api_version": 2,
@@ -20,7 +20,7 @@
           "type": "checkbox",
           "description": "Show news articles in search results",
           "label": "Search for news",
-          "value": true
+          "value": false
         },
         {
           "identifier": "enquiries_form",
@@ -34,84 +34,84 @@
           "type": "text",
           "description": "Zendesk page ID accessibility statement",
           "label": "Accessibility statement",
-          "value": "360017110959"
+          "value": "360015606440"
         },
         {
           "identifier": "article_id",
           "type": "text",
           "description": "Zendesk ID for articles",
           "label": "Article ID",
-          "value": "360002730199"
+          "value": "360002506639"
         },
         {
           "identifier": "community_guidelines_id",
           "type": "text",
           "description": "Zendesk page ID for community guidelines",
           "label": "Community guidelines ID",
-          "value": "360019441999"
+          "value": "360016610340"
         },
         {
           "identifier": "cookies_id",
           "type": "text",
           "description": "Zendesk page ID cookies",
           "label": "Cookies",
-          "value": "360017108999"
+          "value": "360015606100"
         },
         {
           "identifier": "feedback_form_id",
           "type": "text",
           "description": "Zendesk page ID for feedback form",
           "label": "Feedback form ID",
-          "value": "360000641939"
+          "value": "360000690799"
         },
         {
           "identifier": "feedback_form_title",
           "type": "text",
           "description": "Displayed at top of feedback form",
           "label": "Feedback form title",
-          "value": "Service Feedback"
+          "value": ".request_custom_fields_360014529459 "
         },
         {
           "identifier": "privacy_policy_id",
           "type": "text",
           "description": "Zendesk page ID privacy policy",
           "label": "Privacy policy",
-          "value": "360017110699"
+          "value": "360017071039"
         },
         {
           "identifier": "provider_academies",
           "type": "text",
           "description": "Zendesk ID for provider academies",
           "label": "Provider Academies",
-          "value": "360001027099"
+          "value": "360000984440"
         },
         {
           "identifier": "provider_local_authorities",
           "type": "text",
           "description": "Zendesk ID for provider local authorities",
           "label": "Provider Local Authorities",
-          "value": "360000980500"
+          "value": "360000984460"
         },
         {
           "identifier": "provider_maintained_schools",
           "type": "text",
           "description": "Zendesk ID for maintained schools",
           "label": "Provider Maintained Schools",
-          "value": "360001027119"
+          "value": "360001030859"
         },
         {
           "identifier": "terms_and_conditions_id",
           "type": "text",
           "description": "Zendesk page ID terms and conditions",
           "label": "Terms and conditions",
-          "value": "360017065380"
+          "value": "360015606280"
         },
         {
           "identifier": "topic_id",
           "type": "text",
           "description": "Zendesk ID for topics",
           "label": "Topic ID",
-          "value": "360000779360"
+          "value": "360000847259"
         }
       ]
     },
@@ -156,7 +156,7 @@
           "type": "text",
           "description": "Zendesk page ID for FE front door",
           "label": "Page ID",
-          "value": "360003078239"
+          "value": "360003071260"
         },
         {
           "identifier": "fe_fd_title",
@@ -219,7 +219,7 @@
           "type": "checkbox",
           "description": "News",
           "label": "Show",
-          "value": true
+          "value": false
         },
         {
           "identifier": "fe_fd_news_page_id",
@@ -616,7 +616,7 @@
           "type": "text",
           "description": "Link grid 2 - link 2",
           "label": "Title",
-          "value": "Manage your education and skills fundingfunding"
+          "value": "Manage your education and skills funding"
         },
         {
           "identifier": "fe_fd_grid_2_link_2_body",
@@ -1013,7 +1013,7 @@
           "type": "checkbox",
           "description": "Front door 2",
           "label": "Show",
-          "value": true
+          "value": false
         },
         {
           "identifier": "fd_2_page_id",
@@ -1163,7 +1163,7 @@
           "type": "checkbox",
           "description": "Front door 3",
           "label": "Show",
-          "value": true
+          "value": false
         },
         {
           "identifier": "fd_3_page_id",
