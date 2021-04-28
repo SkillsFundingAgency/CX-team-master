@@ -1,0 +1,309 @@
+<div class="govuk-width-container govuk-!-margin-top-3">
+  <div class="govuk-breadcrumbs govuk-!-padding-left-0">
+    <a href="/hc/en-gb" class="govuk-back-link" data-back-link="topic">Back</a>
+	</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div>
+        {{search submit=true class='app-search app-search--black-border' placeholder='Search ESFA support'}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="app-section app-section--navy govuk-!-margin-top-6">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="user-details">
+          <div class="user-details__user">
+            <div class="user-details__user__icon govuk-!-margin-right-4" style="background-image: url({{user.avatar_url}});"></div>
+            <h3 class="govuk-heading-m govuk-!-margin-0">
+                {{user.name}}
+            </h3>
+          </div>
+          {{#if signed_in}}
+            <div id="profilebuttons" class="user-details__actions">
+              {{actions class='user-details__actions__button-wrapper'}}
+              <div class="user-details__actions__button-wrapper">
+                <button data-action="change-password">Change password</button>
+              </div>
+            </div>
+          {{/if}}
+        </div>
+        {{#if description}}
+        <p class="govuk-body govuk-!-margin-top-4 user-description">{{description}}</p>
+        {{/if}}
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <div class="user_statistics">
+          <div class="user_statistics__statistic govuk-!-margin-bottom-4">
+            <h4 class="govuk-heading-s govuk-!-margin-0">{{t 'last_activity'}}</h4>
+            <p class="govuk-body govuk-!-margin-0">
+              {{#if last_activity_at}}
+                {{date last_activity_at timeago=true}}
+              {{else}}
+                {{t 'no_activity_yet'}}
+              {{/if}}
+            </p>
+          </div>
+          <div class="user_statistics__statistic govuk-!-margin-bottom-4">
+            <h4 class="govuk-heading-s govuk-!-margin-0">{{t 'member_since'}}</h4>
+            <p class="govuk-body govuk-!-margin-0">
+              {{#if member_since}}
+                {{date member_since format='short'}}
+              {{else}}
+                {{t 'no_activity_yet'}}
+              {{/if}}
+            </p>
+          </div>
+          <div class="user_statistics__statistic govuk-!-margin-bottom-4">
+            <h4 class="govuk-heading-s govuk-!-margin-0">{{t 'votes'}}</h4>
+            <p class="govuk-body govuk-!-margin-0">{{vote_count}}</p>
+          </div>
+          <div class="user_statistics__statistic govuk-!-margin-bottom-4">
+            <h4 class="govuk-heading-s govuk-!-margin-0">{{t 'subscriptions'}}</h4>
+            <p class="govuk-body govuk-!-margin-0">{{subscription_count}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="app-section app-section--grey" style="padding:0;" >
+  <div class="govuk-width-container" >
+    <ul class="userprofilepagenav">
+      <li {{#is current_filter.identifier 'activities'}}class="current"{{/is}}><a class="govuk-link" href="/hc/en-gb/profiles/{{user.id}}?filter_by=activities" id="OverviewLink">Activity overview</a></li>
+      <li {{#is current_filter.identifier 'posts'}}class="current"{{/is}}><a class="govuk-link" href="/hc/en-gb/profiles/{{user.id}}?filter_by=posts&sort_by=recent_user_activity" id="PostsLink">Posts</a></li>
+      <li {{#is current_filter.identifier 'comments'}}class="current"{{/is}}><a class="govuk-link" href="/hc/en-gb/profiles/{{user.id}}?filter_by=comments&sort_by=recent_user_activity" id="RepliesLink">Replies</a></li> 
+      <li><a class="govuk-link subscriptionslink" href="/hc/en-gb/subscriptions">Subscriptions</a></li> 
+    </ul>
+  </div>
+</div> 
+
+<!-- get user details -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    $.getJSON('/api/v2/users/me.json', function (data) {
+      var userProfilename = data.user.name;
+      var pageUsername = '{{user.name}}';
+      if(userProfilename === pageUsername) {
+        
+        document.getElementById("OverviewLink").href = '/hc/en-gb/profiles/' + data.user.id + '-' + userProfilename + '?filter_by=activities';
+        document.getElementById("PostsLink").href = '/hc/en-gb/profiles/' + data.user.id + '-' + userProfilename + '?filter_by=posts&sort_by=recent_user_activity'; 
+        document.getElementById("RepliesLink").href = '/hc/en-gb/profiles/' + data.user.id + '-' + userProfilename + '?filter_by=comments&sort_by=recent_user_activity';
+      }
+  		 if(userProfilename != pageUsername) {
+  				$('#profilebuttons').hide();
+  				$('.subscriptionslink').hide();
+  			}
+    }); 
+  });
+</script>
+    
+  <div class="govuk-width-container govuk-!-margin-bottom-7">
+     <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      {{#if visible}}
+        {{#if member_since}}
+        
+            <div class="container">
+              <section class="profile-section">
+                {{#if activities}}
+                  
+                    <h3 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-6">{{t 'activity_overview'}}</h3>
+                
+                    {{#each activities}}
+                      <!--Code for an article --> 
+                      <div class="profile-activity-{{type}} govuk-!-margin-top-3 govuk-!-margin-bottom-3 ctivity-history" style="display: grid; grid-template-columns: 30px auto; grid-template-rows: auto auto;">
+                        <div> 
+                          <img alt="Commmunity Post" src="{{asset 'Vectorcommunitypost.png'}}">
+                        </div>
+                        <div>
+                          <p class="govuk-body">{{label}}</p>
+                        </div>
+                        <div> 
+                          <div style="height: 100%; width:1px; border-left: 1px solid black; margin-left:5px;"></div>
+                        </div> 
+                        {{#with contribution}}
+                          <div class="profile-activity-contribution profile-contribution" style="border: 1px solid #B1B4B6; padding: 20px; margin-top:10px; margin-bottom: 10px;">
+                            <header class="profile-contribution-header">
+                              
+                                <h3 class="govuk-heading-s govuk-!-margin-bottom-1"><a class="govuk-link" href="{{url}}">{{excerpt title characters=55}}</a></h3>
+                              
+                           
+                            </header>
+
+                            <ol class="breadcrumbs">
+                              {{#each path_steps}}
+                                {{#if @last}}<li title="{{name}}" class="posttitle-two"><a class="posttitle-two" href="{{url}}">{{excerpt name characters=55}}</a></li>{{/if}}
+                              {{/each}}
+                            </ol>
+
+                            <p class="govuk-body posttitle-two">{{excerpt body characters=200}}</p>
+
+                          </div>
+                        {{/with}}
+                      </div>
+
+                    {{/each}}
+                
+                {{else}}
+                
+                  {{#isnt current_filter.identifier'comments'}}
+                
+                    {{#is current_filter.identifier 'activities'}}
+                      
+    											<h3 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-6">Activity overview</h3>
+  										
+                			<h4 class="no-activities nonuserstext govuk-heading-s govuk-!-margin-bottom-2">This user has not created or replied to any posts on ESFA Communities.</h4>
+                			<h4 class="no-activities userstext govuk-heading-s govuk-!-margin-bottom-2">You have not created or replied to any posts on ESFA Communities.</h4>
+      								<p class="no-activities govuk-body nonuserstext">Visit <a class="govuk-link" href="{{dc 'esfa_help_centre_-_home'}}">ESFA Communities</a> to view posts and replies from other users.</p>
+                			<p class="no-activities govuk-body userstext">Visit <a class="govuk-link" href="{{dc 'esfa_help_centre_-_home'}}">ESFA Communities</a> to create and reply to posts.</p>
+                    {{/is}}
+                
+                    {{#is current_filter.identifier 'posts'}}
+                      {{#if contributions}}{{else}}
+                      
+    											<h3 class="my-activities-header govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-6">Posts</h3>
+  										
+                			<!-- Is my post? --> 
+                			<h4 class="no-activities nonuserstext govuk-heading-s govuk-!-margin-bottom-2">This user has not created any posts on ESFA Communities.</h4>
+                			<h4 class="no-activities userstext govuk-heading-s govuk-!-margin-bottom-2">You have not created any posts on ESFA Communities.</h4>
+      								<p class="no-activities govuk-body nonuserstext">Visit <a class="govuk-link" href="{{dc 'esfa_help_centre_-_communities'}}">ESFA Communities</a> to view posts from other users.</p>
+                			<p class="no-activities govuk-body userstext">Visit <a class="govuk-link" href="{{dc 'esfa_help_centre_-_communities'}}">ESFA Communities</a> to create a post.</p>
+                      {{/if}}
+                    {{/is}}
+                
+                  {{/isnt}}
+                {{/if}}
+              </section>
+            </div>
+         
+
+       </div>
+         
+          </div>
+        
+             
+                  
+                 
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          {{#if contributions}}
+            <h3 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-6">{{#is current_filter.identifier 'posts'}}Posts{{/is}}{{#is current_filter.identifier 'comments'}}Replies{{/is}}</h3>
+                 
+        </div>
+      </div>
+                    
+                      
+      <!--start of new filter code --> 
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds govuk-!-margin-top-0 govuk-!-margin-bottom-3">
+          {{#each contributions}}
+            <div class="govuk-!-margin-top-3 govuk-!-margin-bottom-3" style="margin-right: 10px; display: grid; grid-template-columns: 30px auto; grid-template-rows: auto auto;">
+            <div style="margin-bottom: 5px;">
+              
+              		<img alt="Community Reply" style="vertical-align: middle;" src="{{asset 'Vectorcommunitypost.png'}}">
+              
+            </div>
+            <div id="toplinefilterpage">
+              <p class="govuk-body">{{author.name}} {{#is object_type 'post'}}created a post{{/is}}{{#is object_type 'comment'}}commented{{/is}}, {{date created_at timeago=true}} </p>
+            </div>
+            <div>
+              <div style="height: 100%; width:1px; border-left: 1px solid #B1B4B6; margin-left:5px;"></div>
+            </div>
+            <div style="padding: 20px; margin-top: 10px; margin-bottom: 10px; border: 1px solid #B1B4B6;">
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-1"><a class="govuk-link" href="{{url}}">{{title}}</a></h3>
+                <header class="profile-contribution-header">
+                  {{#isnt object_type 'comment'}}
+
+                  {{/isnt}}
+
+                </header>
+                <ol class="breadcrumbs profile-contribution-breadcrumbs">
+                  {{#each path_steps}}
+                    {{#if @last}}<li title="{{name}}"><a href="{{url}}">{{name}}</a></li>{{/if}}
+                  {{/each}}
+                </ol>
+                <p class="govuk-body profile-contribution-body">{{excerpt body characters=200}}</p>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>          
+      <div data-apply-gds>
+        {{pagination}}
+      <div>
+    
+    {{else}}
+        
+      {{#isnt current_filter.identifier 'activities'}}
+        {{#isnt current_filter.identifier 'posts'}}
+          
+    				<h3 class="my-activities-header govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-6">Replies</h3>
+  			
+        	<h4 class="no-activities nonuserstext govuk-heading-s govuk-!-margin-bottom-2">This user has not replied to any posts on ESFA Communities.</h4>
+          <h4 class="no-activities userstext govuk-heading-s govuk-!-margin-bottom-2">You have not replied to any posts on ESFA Communities.</h4>
+        	<p class="no-activities govuk-body nonuserstext">Visit <a href="/hc/en-gb" class="govuk-link">ESFA Communities</a> to view replies from other users.</p>
+      		<p class="no-activities govuk-body userstext">Visit <a href="/hc/en-gb" class="govuk-link">ESFA Communities</a> to reply to a post.</p>
+        {{/isnt}}
+      {{/isnt}}
+ 
+    {{/if}}
+        
+
+    {{/if}}
+ {{#unless member_since}}
+      <div class="container">
+         {{#is current_filter.identifier 'activities'}}
+    					<h3 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-6">Activity overview</h3>					
+              <h4 class="no-activities nonuserstext govuk-heading-s govuk-!-margin-bottom-2">This user has not created or replied to any posts on ESFA Communities.</h4>
+              <h4 class="no-activities userstext govuk-heading-s govuk-!-margin-bottom-2">You have not created or replied to any posts on ESFA Communities.</h4>
+      				<p class="no-activities govuk-body nonuserstext">Visit <a class="govuk-link" href="/hc/en-gb">ESFA Communities</a> to view posts and replies from other users.</p>
+              <p class="no-activities govuk-body userstext">Visit <a class="govuk-link" href="/hc/en-gb">ESFA Communities</a> to create and reply to posts.</p>
+   				{{/is}}
+        
+        	 {{#is current_filter.identifier 'posts'}}
+    			<h3 class="my-activities-header govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-6">Posts</h3>
+        	<h4 class="no-activities nonuserstext govuk-heading-s govuk-!-margin-bottom-2">This user has not created any posts on ESFA Communities.</h4>
+          <h4 class="no-activities userstext govuk-heading-s govuk-!-margin-bottom-2">You have not created any posts on ESFA Communities.</h4>
+        	<p class="no-activities govuk-body nonuserstext">Visit <a href="/hc/en-gb" class="govuk-link">ESFA Communities</a> to view posts from other users.</p>
+      		<p class="no-activities govuk-body userstext">Visit <a href="/hc/en-gb" class="govuk-link">ESFA Communities</a> to create a post.</p>
+        	{{/is}}
+        
+        	{{#is current_filter.identifier 'comments'}}
+          
+    				<h3 class="my-activities-header govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-6">Replies</h3>
+  			
+        	<h4 class="no-activities nonuserstext govuk-heading-s govuk-!-margin-bottom-2">This user has not replied to any posts on ESFA Communities.</h4>
+          <h4 class="no-activities userstext govuk-heading-s govuk-!-margin-bottom-2">You have not replied to any posts on ESFA Communities.</h4>
+        	<p class="no-activities govuk-body nonuserstext">Visit <a href="/hc/en-gb" class="govuk-link">ESFA Communities</a> to view replies from other users.</p>
+      		<p class="no-activities govuk-body userstext">Visit <a href="/hc/en-gb" class="govuk-link">ESFA Communities</a> to reply to a post.</p>
+        {{/is}}
+        
+      </div>
+    {{/unless}}
+
+    {{/if}}
+        
+        
+</div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+  users.getUserInformation().done(function(user){
+  
+  	var currentUserID = {{user.id}};
+  
+    if(currentUserID != user.user.id) {
+      $('.userstext').hide();
+      $('.nonuserstext').show();
+    } else {
+  		$('.nonuserstext').hide();
+  	}
+  
+  });
+});
+</script>

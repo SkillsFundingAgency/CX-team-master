@@ -1,0 +1,309 @@
+<script>
+   const postid = {{post.id}};
+	{{#is topic.name 'Further education and training providers'}}
+  	document.title = "Further education and training providers community - {{post.title}}";
+  {{else}}
+  	document.title = "Academies and maintained schools community - {{post.title}}";
+  {{/is}}
+</script>
+<!--Import the breadcrumbs into the post page -->
+<div class="govuk-width-container community_post_page">
+	<div class="govuk-width-container topicpage govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+		<div class="govuk-breadcrumbs">
+			<ol class="breadcrumbs">
+				<li title="Home">
+					<a href="/hc/en-gb/">Home</a>
+				</li>
+				{{#is topic.name 'Further education and training providers'}}
+  				<li title="Home">
+	  				<a href="{{dc 'esfa_help_centre_-_communities'}}">Further education and training providers community</a>
+		  		</li>
+        {{else}}
+			  	<li title="Home">
+				  	<a href="/hc/en-gb/community/topics/{{settings.provider_academies}}-Academies">Academies and maintained schools community</a>
+				  </li>
+        {{/is}}
+			</ol>
+		</div>
+	</div>
+</div>
+<div class="govuk-width-container">
+	<div class="govuk-grid-row govuk-!-padding-bottom-6">
+		<div class="govuk-!-margin-bottom-0 govuk-grid-column-full">
+      {{search submit=true scoped=true class='app-search app-search--black-border govuk-!-padding-left-0 govuk-grid-column-two-thirds' scoped=true placeholder='Search ESFA support'}}
+    </div>
+	</div>
+	<div id="pendingapproval" class="subscribebuttonstopic govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="display:none;">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-full govuk-!-padding-left-3">
+				<div class="text user-pending-approval">
+					<h4 class="govuk-heading-s  govuk-!-margin-bottom-0">You will be able to post, reply and subscribe once the ESFA approves your account for this community.</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="subnotification" class="subscribebuttonstopic govuk-!-margin-top-0 govuk-!-margin-bottom-6">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-full govuk-!-padding-left-3">
+				<div class="text" style="border: 5px solid #00703C; padding: 20px; font-family: GDS Transport; font-style: normal; font-weight: bold; font-size: 19px; line-height: 26px; color: #00703C;">
+					<!--Only display the new post button if the user is logged in-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="govuk-width-container">
+	<!--Comment box START-->
+	<div class="comment-box{{#if post.author.agent}} comment-box--esfa{{/if}} govuk-!-padding-left-6 govuk-!-padding-right-6 govuk-!-padding-top-6">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-one-quarter">
+        {{#link 'user_profile' id=post.author.id}}
+          <div class="comment-box__author-avatar govuk-!-margin-bottom-4" style="background-image: url('{{post.author.avatar_url}}');"></div>
+        {{/link}}
+				<h3 class="govuk-heading-s govuk-!-margin-bottom-4 comment-box__author-name">{{post.author.name}}{{#if post.author.agent}} (ESFA){{/if}}</h3>
+			</div>
+			<div class="govuk-grid-column-three-quarters">
+				<div class="comment-box__columns">
+					<div class="comment-box__columns__column">
+						<h1 class="govuk-heading-xl govuk-!-margin-bottom-6 comment-box__heading">{{excerpt post.title characters=80}}</h1>
+					</div>
+          {{#if post.author.agent}}
+            <div class="comment-box__columns__column govuk-!-margin-left-6">
+              <img alt="ESFA Logo" class="comment-box__logo" src="{{asset 'ESFALogoBlack.png'}}" />
+            </div>
+          {{/if}}
+				</div>
+				<p class="govuk-body govuk-!-margin-bottom-4 comment-box__date">
+        	{{#if post.editor}}
+          	Edited {{date post.edited_at timeago=true}}
+          {{else}}
+          	Created {{date post.created_at timeago=false}}
+          {{/if}}
+      	</p>
+				<div class="govuk-tag-list">
+          {{#if post.pinned}}
+  					<strong class="govuk-tag govuk-tag--pinned govuk-!-margin-bottom-2 govuk-!-margin-right-2">Pinned</strong>
+          {{/if}}
+          {{#isnt topic.name 'Further education and training providers'}}
+            {{#with post}}
+              {{#each path_steps}}
+                {{#is @index 1}}
+                  <strong class="govuk-tag govuk-!-margin-bottom-2 govuk-!-margin-right-2" data-custom-tag>{{name}}</strong>
+                {{/is}}
+              {{/each}}
+            {{/with}}
+          {{/isnt}}
+				</div>
+				<div class="govuk-!-margin-bottom-6 govuk-!-margin-top-4" data-apply-gds>
+        	{{post.details}}
+        </div>
+				<div class="comment-box__columns comment-box__columns--align-bottom">
+					<div class="comment-box__columns__column">
+            {{#if signed_in}}
+              <button class="govuk-button comment-box__button" id="subscribebutton">Subscribe to topic</button>
+              <a class="govuk-button govuk-button--secondary comment-box__button" id="postEdit" data-action="edit-post" rel="nofollow" data-valuetext="Edit" href="/hc/api/internal/communities/posts/{{post.id}}">Edit post</a>
+              <button class="govuk-button govuk-button--warning comment-box__button" id="postdelete">Delete post</button>
+              <div class="comment-box__moderator govuk-!-margin-bottom-6" id="postModerator">
+                {{#post.actions}}Moderator{{/post.actions}}
+              </div>
+          	{{/if}}
+					</div>
+					<div class="comment-box__columns__column govuk-!-margin-left-6">
+						<div class="like govuk-!-margin-bottom-6">
+							<div class="like__button-wrapper" id="likeButtonWrapper">
+                {{#if signed_in}}
+                  {{#with post}}
+                    {{#vote "up" role="radio" class="like__button" selected_class="like__button like__button--liked"}}
+                      <span class="govuk-body like__button__label like__button__label--like">Like</span>
+                      <span class="govuk-body like__button__label like__button__label--unlike">Unlike</span>
+                    {{/vote}}
+                  {{/with}}
+                {{/if}}
+							</div>
+							<div class="govuk-!-margin-left-2 govuk-!-margin-right-1">
+								<svg width="19" height="20" viewBox="0 0 19 20" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path d="M5.83366 18.3334H3.33366C2.89163 18.3334 2.46771 18.1578 2.15515 17.8453C1.84259 17.5327 1.66699 17.1088 1.66699 16.6667V10.8334C1.66699 10.3914 1.84259 9.96746 2.15515 9.6549C2.46771 9.34234 2.89163 9.16675 3.33366 9.16675H5.83366M11.667 7.50008V4.16675C11.667 3.50371 11.4036 2.86782 10.9348 2.39898C10.4659 1.93014 9.83003 1.66675 9.16699 1.66675L5.83366 9.16675V18.3334H15.2337C15.6356 18.338 16.0256 18.1971 16.3319 17.9368C16.6382 17.6764 16.8401 17.3142 16.9003 16.9167L18.0503 9.41675C18.0866 9.17788 18.0705 8.93398 18.0031 8.70196C17.9357 8.46993 17.8187 8.25533 17.6602 8.07301C17.5017 7.89069 17.3054 7.74502 17.085 7.6461C16.8645 7.54717 16.6252 7.49735 16.3837 7.50008H11.667Z" stroke="#0B0C0C" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</div>
+              {{#with post}}
+                {{vote 'sum' class='govuk-body govuk-!-margin-0'}}
+              {{/with}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  {{#if signed_in}}
+	  <script>
+    	document.addEventListener('DOMContentLoaded', function() {
+        $.getJSON('/api/v2/users/me.json', function (data) {
+          if(data.user.id ===  {{post.author.id}}) {
+            $('#postdelete').show();
+            $('#postEdit').css('display', 'inline-block');
+          } else {
+    				$('#subscribebutton').show();
+    				$('#likeButtonWrapper').show();
+    			}
+          if(data.user.role == "agent" || data.user.role == "admin") {
+            $('#postModerator').css('display', 'inline-block');
+          }
+        });
+      });
+    </script>
+  {{/if}}
+	<!--Comment box END-->
+
+	<h2 class="govuk-heading-m govuk-!-margin-top-6">Replies</h2>
+	<div class="comment-no-replies{{#unless comments}} comment-no-replies--no-comments{{/unless}}">
+		<p class="govuk-body">No one has replied to this post.</p>
+		<hr class="govuk-section-break govuk-section-break--visible">
+	</div>
+
+	<!--Comment reply START-->
+  {{#each comments}}
+		<div class="comment-box comment-box--reply{{#if author.agent}} comment-box--esfa{{/if}} govuk-!-padding-left-6 govuk-!-padding-right-6 govuk-!-padding-top-6" id="community_comment_{{id}}">
+			<div class="comment-box__columns">
+				<div class="comment-box__columns__column">
+					<div class="comment-box__reply-author govuk-!-margin-bottom-2">
+            {{#link 'user_profile' id=author.id}}
+  						<div class="comment-box__author-avatar comment-box__author-avatar--small" style="background-image: url('{{author.avatar_url}}');"></div>
+            {{/link}}
+  					<h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{author.name}}{{#if author.agent}} (ESFA){{/if}}</h3>
+					</div>
+				</div>
+        {{#if author.agent}}
+    			<div class="comment-box__columns__column govuk-!-margin-left-6">
+		  			<img alt="ESFA Logo" class="comment-box__logo" src="{{asset 'ESFALogoBlack.png'}}" />
+				  </div>
+        {{/if}}
+			</div>
+			<div class="comment-box__reply-comment">
+				<div data-apply-gds>
+        	{{body}}
+        </div>
+				<div class="comment-box__columns comment-box__columns--align-bottom">
+					<div class="comment-box__columns__column">
+						<p class="govuk-body-s comment-box__date govuk-!-margin-bottom-6">
+              {{#if editor}}
+                {{date edited_at timeago=true}} ({{t 'edited'}})
+              {{else}}
+                {{date created_at timeago=true}}
+              {{/if}}
+            </p>
+						<div class="comment-box__moderator govuk-!-margin-bottom-6" data-action="moderator" data-comment-id="{{id}}">
+              {{#actions}}Moderator{{/actions}}
+            </div>
+					</div>
+					<div class="comment-box__columns__column govuk-!-margin-left-6">
+						<div class="like govuk-!-margin-bottom-6">
+							<a class="comment-box__action govuk-link govuk-!-font-size-19 govuk-!-margin-right-4" data-action="edit-comment" data-comment-id="{{id}}" href="#" rel="nofollow">Edit</a>
+							<a class="comment-box__action govuk-link govuk-!-font-size-19 govuk-!-margin-right-2" data-action="delete-comment" data-comment-id="{{id}}" href="#" rel="nofollow">Delete</a>
+							<div class="like__button-wrapper" data-action="like-comment" data-comment-id="{{id}}">
+                {{#if ../signed_in}}
+                  {{#vote "up" role="radio" class="like__button" selected_class="like__button like__button--liked"}}
+    								<span class="govuk-body like__button__label like__button__label--like">Like</span>
+		    						<span class="govuk-body like__button__label like__button__label--unlike">Unlike</span>
+                  {{/vote}}
+                {{/if}}
+							</div>
+							<div class="govuk-!-margin-left-2 govuk-!-margin-right-1">
+								<svg width="19" height="20" viewBox="0 0 19 20" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path d="M5.83366 18.3334H3.33366C2.89163 18.3334 2.46771 18.1578 2.15515 17.8453C1.84259 17.5327 1.66699 17.1088 1.66699 16.6667V10.8334C1.66699 10.3914 1.84259 9.96746 2.15515 9.6549C2.46771 9.34234 2.89163 9.16675 3.33366 9.16675H5.83366M11.667 7.50008V4.16675C11.667 3.50371 11.4036 2.86782 10.9348 2.39898C10.4659 1.93014 9.83003 1.66675 9.16699 1.66675L5.83366 9.16675V18.3334H15.2337C15.6356 18.338 16.0256 18.1971 16.3319 17.9368C16.6382 17.6764 16.8401 17.3142 16.9003 16.9167L18.0503 9.41675C18.0866 9.17788 18.0705 8.93398 18.0031 8.70196C17.9357 8.46993 17.8187 8.25533 17.6602 8.07301C17.5017 7.89069 17.3054 7.74502 17.085 7.6461C16.8645 7.54717 16.6252 7.49735 16.3837 7.50008H11.667Z" stroke="#0B0C0C" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</div>
+              {{vote 'sum' class='govuk-body govuk-!-margin-0'}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+      $.getJSON('/api/v2/users/me.json', function (commentdata) {
+      	if(commentdata.user.id === {{author.id}}) {
+      		$('[data-action="edit-comment"][data-comment-id="{{id}}"]').show();
+      		$('[data-action="delete-comment"][data-comment-id="{{id}}"]').show();
+	      } else {
+      		$('[data-action="like-comment"][data-comment-id="{{id}}"]').show();
+      	}
+
+	      if(commentdata.user.role == "agent" || commentdata.user.role == "admin") {
+      		$('[data-action="moderator"][data-comment-id="{{id}}"]').show();
+				}
+      });
+  	</script>
+  {{/each}}
+	<!--Comment reply END-->
+</div>
+<div class="govuk-width-container">
+  <div class="govuk-grid-row ">
+    <div class="govuk-grid-column-full">
+      <h3 class="govuk-heading-m govuk-!-margin-top-6 govuk-!-margin-bottom-3"><span class="repliescommunitypostpage">Post a reply {{#if signed_in}}
+        as {{user_name}}</span>{{/if}}
+      </h3>
+      {{#unless signed_in}}
+        {{#link "sign_in"}}
+          <span class="createnew createnewsignedin govuk-button govuk-!-margin-bottom-9">Sign in to post a reply</span>
+        {{/link}}
+      {{/unless}}
+      {{#if signed_in}}
+        <p class="govuk-body font-color-grey govuk-!-margin-bottom-2 repliescommunitypostpage">Before writing a reply:</p>
+        <ul class="govuk-list govuk-list--bullet font-color-grey repliescommunitypostpage">
+          <li>avoid sharing information that is sensitive or could identify individuals</li>
+          <li>remember that the ESFA cannot guarantee the accuracy of any information shared with the community</li>
+          <li>the
+            <a class="govuk-link govuk-link--no-visited-state" href="">community guidelines</a> provide further guidance
+          </li>
+        </ul>
+      {{/if}}
+    </div>
+    <div class="govuk-grid-column-full repliescommunitypostpage">
+      {{#form 'comment' class='comment-form'}}
+        <div id="wysiwygplaceholdertext" class="govuk-!-padding-2" style="height: 200px; border: 1px solid black;">
+          <p class="govuk-body" style="color: #626A6E;">Type here. Drag images into this box. Tag other users with the ‘@’ symbol followed by their username.</p>
+        </div>
+        <script>
+          $( "#wysiwygplaceholdertext" ).click(function() {
+            $('#wysiwygplaceholdertext').remove();
+            $('#community_comment_body').css('display', 'block');
+          });
+        </script>
+        {{wysiwyg 'body'}}
+        <div class="comment-form-controls">
+          {{#if signed_in}}
+            <div id="maxcharbox" class="govuk-body govuk-!-margin-bottom-0">
+              <p class="govuk-!-margin-top-2 govuk-!-margin-bottom-0">Maximum 1000 characters.</p>
+            </div>
+            <div id="postsubscribe" class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item govuk-!-margin-top-6">
+                <input class="govuk-checkboxes__input" id="subscribe_checkbox" name="subscribe" type="checkbox" value="subscribe" />
+                <label class="govuk-label govuk-checkboxes__label govuk-heading-s font-weight-700 govuk-!-padding-left-2" for="subscribe_checkbox">Subscribe to topic</label>
+                <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint govuk-!-padding-left-2">
+                  Tick this box to get email updates every time someone replies to this post
+                </div>
+              </div>
+            </div>
+            <button id="submitcomment" class="govuk-button govuk-!-margin-bottom-9 govuk-!-margin-top-3 btn-user-manage">Post reply</button>
+          {{/if}}
+        </div>
+      {{/form}}
+    </div>
+  </div>
+</div>
+<div data-apply-gds>
+  {{pagination}}
+</div>
+{{#if signed_in}}
+  <script>
+      {{#is topic.name 'Further education and training providers'}}
+    	var topicType = 'FE';
+    {{else}}
+    	var topicType = 'AMS';
+    {{/is}}
+    document.addEventListener('DOMContentLoaded', function() {
+      communityPostPage('{{post.id}}', '{{topic.name}}');
+    });
+  </script>
+{{/if}}

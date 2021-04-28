@@ -1,0 +1,1309 @@
+{
+  "name": "ESFA Help Centre 0104 v2 - Master",
+  "author": "Zendesk",
+  "version": "12",
+  "api_version": 2,
+  "default_locale": "en-us",
+  "settings": [
+    {
+      "label": "Settings",
+      "variables": [
+        {
+          "identifier": "global_beta",
+          "type": "checkbox",
+          "description": "Show banner at top of page",
+          "label": "Beta banner",
+          "value": true
+        },
+        {
+          "identifier": "news_search",
+          "type": "checkbox",
+          "description": "Show news articles in search results",
+          "label": "Search for news",
+          "value": true
+        },
+        {
+          "identifier": "enquiries_form",
+          "type": "checkbox",
+          "description": "Show enquiries form",
+          "label": "Enquiries form",
+          "value": false
+        },
+        {
+          "identifier": "accessibility_statement_id",
+          "type": "text",
+          "description": "Zendesk page ID accessibility statement",
+          "label": "Accessibility statement",
+          "value": "360017110959"
+        },
+        {
+          "identifier": "article_id",
+          "type": "text",
+          "description": "Zendesk ID for articles",
+          "label": "Article ID",
+          "value": "360002730199"
+        },
+        {
+          "identifier": "community_guidelines_id",
+          "type": "text",
+          "description": "Zendesk page ID for community guidelines",
+          "label": "Community guidelines ID",
+          "value": "360019441999"
+        },
+        {
+          "identifier": "cookies_id",
+          "type": "text",
+          "description": "Zendesk page ID cookies",
+          "label": "Cookies",
+          "value": "360017108999"
+        },
+        {
+          "identifier": "feedback_form_id",
+          "type": "text",
+          "description": "Zendesk page ID for feedback form",
+          "label": "Feedback form ID",
+          "value": "360000641939"
+        },
+        {
+          "identifier": "feedback_form_title",
+          "type": "text",
+          "description": "Displayed at top of feedback form",
+          "label": "Feedback form title",
+          "value": "Service Feedback"
+        },
+        {
+          "identifier": "privacy_policy_id",
+          "type": "text",
+          "description": "Zendesk page ID privacy policy",
+          "label": "Privacy policy",
+          "value": "360017110699"
+        },
+        {
+          "identifier": "provider_academies",
+          "type": "text",
+          "description": "Zendesk ID for provider academies",
+          "label": "Provider Academies",
+          "value": "360001027099"
+        },
+        {
+          "identifier": "provider_local_authorities",
+          "type": "text",
+          "description": "Zendesk ID for provider local authorities",
+          "label": "Provider Local Authorities",
+          "value": "360000980500"
+        },
+        {
+          "identifier": "provider_maintained_schools",
+          "type": "text",
+          "description": "Zendesk ID for maintained schools",
+          "label": "Provider Maintained Schools",
+          "value": "360001027119"
+        },
+        {
+          "identifier": "terms_and_conditions_id",
+          "type": "text",
+          "description": "Zendesk page ID terms and conditions",
+          "label": "Terms and conditions",
+          "value": "360017065380"
+        },
+        {
+          "identifier": "topic_id",
+          "type": "text",
+          "description": "Zendesk ID for topics",
+          "label": "Topic ID",
+          "value": "360000779360"
+        }
+      ]
+    },
+    {
+      "label": "Home page",
+      "variables": [
+        {
+          "identifier": "home_title",
+          "type": "text",
+          "description": " ",
+          "label": "Title",
+          "value": "Get help with Education and Skills Funding Agency services"
+        },
+        {
+          "identifier": "home_description",
+          "type": "text",
+          "description": " ",
+          "label": "Description",
+          "value": "Self-service support options for education providers hosted by the ESFA."
+        },
+        {
+          "identifier": "home_resources_active",
+          "type": "checkbox",
+          "description": " ",
+          "label": "Show resources",
+          "value": true
+        }
+      ]
+    },
+    {
+      "label": "FE Front Door",
+      "variables": [
+        {
+          "identifier": "fe_fd_active",
+          "type": "checkbox",
+          "description": "FE front door",
+          "label": "Show",
+          "value": true
+        },
+        {
+          "identifier": "fe_fd_page_id",
+          "type": "text",
+          "description": "Zendesk page ID for FE front door",
+          "label": "Page ID",
+          "value": "360003078239"
+        },
+        {
+          "identifier": "fe_fd_title",
+          "type": "text",
+          "description": "FE front door",
+          "label": "Title",
+          "value": "Find a further education service"
+        },
+        {
+          "identifier": "fe_fd_home_page_description",
+          "type": "text",
+          "description": "FE front door",
+          "label": "Homepage description",
+          "value": "View links to online services for further education providers."
+        },
+        {
+          "identifier": "fe_fd_page_description",
+          "type": "text",
+          "description": "FE front door",
+          "label": "Page description",
+          "value": "Key ESFA services for further education and training providers."
+        },
+        {
+          "identifier": "fe_fd_calendar_active",
+          "type": "checkbox",
+          "description": "Calendar",
+          "label": "Show",
+          "value": true
+        },
+        {
+          "identifier": "fe_fd_calendar_data_source",
+          "type": "text",
+          "description": "Google Sheets document ID",
+          "label": "Calendar data source",
+          "value": "1BDhR3WFnRfvqdj_DgBFXyH0SOHkUR9t-7snW8HwplJU"
+        },
+        {
+          "identifier": "fe_fd_calendar_api_key",
+          "type": "text",
+          "description": "Google Sheets API key",
+          "label": "Calendar data authentication",
+          "value": "AIzaSyCHxvz9up0ndkjmbWOHQKcXJsjLoORe9dc"
+        },
+        {
+          "identifier": "fe_fd_flagged_dates_title",
+          "type": "text",
+          "description": "Flagged calendar dates",
+          "label": "Title",
+          "value": "Change of date"
+        },
+        {
+          "identifier": "fe_fd_calendar_title",
+          "type": "text",
+          "description": "Calendar",
+          "label": "Title",
+          "value": "Calendar"
+        },
+        {
+          "identifier": "fe_fd_news_active",
+          "type": "checkbox",
+          "description": "News",
+          "label": "Show",
+          "value": true
+        },
+        {
+          "identifier": "fe_fd_news_page_id",
+          "type": "text",
+          "description": "Zendesk page ID for news",
+          "label": "Page ID",
+          "value": "360005500760"
+        },
+        {
+          "identifier": "fe_fd_news_title",
+          "type": "text",
+          "description": "News",
+          "label": "Title",
+          "value": "News"
+        },
+        {
+          "identifier": "fe_fd_news_article_1_image",
+          "type": "file",
+          "description": "News article 1",
+          "label": "Image"
+        },
+        {
+          "identifier": "fe_fd_news_article_2_image",
+          "type": "file",
+          "description": "News article 2",
+          "label": "Image"
+        },
+        {
+          "identifier": "fe_fd_grid_1_active",
+          "type": "checkbox",
+          "description": "Link grid 1",
+          "label": "Show",
+          "value": true
+        },
+        {
+          "identifier": "fe_fd_grid_1_title",
+          "type": "text",
+          "description": "Link grid 1",
+          "label": "Title",
+          "value": "Funding rules"
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_1_title",
+          "type": "text",
+          "description": "Link grid 1 - link 1",
+          "label": "Title",
+          "value": "Adult education budget (AEB) funding rules"
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_1_body",
+          "type": "text",
+          "description": "Link grid 1 - link 1",
+          "label": "Description",
+          "value": "Sets out the rules that apply to ESFA funded AEB provision for the 2020 to 2021 funding year."
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_1_url",
+          "type": "text",
+          "description": "Link grid 1 - link 1",
+          "label": "URL",
+          "value": "https://www.gov.uk/guidance/adult-education-budget-aeb-funding-rules-2020-to-2021"
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_2_title",
+          "type": "text",
+          "description": "Link grid 1 - link 2",
+          "label": "Title",
+          "value": "Advanced learner loans funding rules"
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_2_body",
+          "type": "text",
+          "description": "Link grid 1 - link 2",
+          "label": "Description",
+          "value": "Sets out the rules for provision funded by learners through advanced learner loans."
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_2_url",
+          "type": "text",
+          "description": "Link grid 1 - link 2",
+          "label": "URL",
+          "value": "https://www.gov.uk/government/publications/advanced-learner-loans-funding-rules-2020-to-2021"
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_3_title",
+          "type": "text",
+          "description": "Link grid 1 - link 3",
+          "label": "Title",
+          "value": "Apprenticeship funding rules"
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_3_body",
+          "type": "text",
+          "description": "Link grid 1 - link 3",
+          "label": "Description",
+          "value": "There are different funding rules for different apprenticeship start dates. You must follow the funding rules that apply to each apprentice."
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_3_url",
+          "type": "text",
+          "description": "Link grid 1 - link 3",
+          "label": "URL",
+          "value": "https://www.gov.uk/guidance/apprenticeship-funding-rules#the-latest-rules-2019-to-2020"
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_4_title",
+          "type": "text",
+          "description": "Link grid 1 - link 4",
+          "label": "Title",
+          "value": "European social fund (ESF) funding rules"
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_4_body",
+          "type": "text",
+          "description": "Link grid 1 - link 4",
+          "label": "Description",
+          "value": "Sets out the rules for funding the 2014 to 2020 ESF programme."
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_4_url",
+          "type": "text",
+          "description": "Link grid 1 - link 4",
+          "label": "URL",
+          "value": "https://www.gov.uk/government/publications/esf-funding-rules"
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_5_title",
+          "type": "text",
+          "description": "Link grid 1 - link 5",
+          "label": "Title",
+          "value": "Rules and guidance for using 16 to 19 formula funding allocated by ESFA"
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_5_body",
+          "type": "text",
+          "description": "Link grid 1 - link 5",
+          "label": "Description",
+          "value": "Guidance documents that all education institutions receiving 16 to 19 formula funding must comply with."
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_5_url",
+          "type": "text",
+          "description": "Link grid 1 - link 5",
+          "label": "URL",
+          "value": "https://www.gov.uk/guidance/16-to-19-education-funding-guidance#funding-guidance-for-institutions-2020-to-2021"
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_6_title",
+          "type": "text",
+          "description": "Link grid 1 - link 6",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_6_body",
+          "type": "text",
+          "description": "Link grid 1 - link 6",
+          "label": "Description",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_6_url",
+          "type": "text",
+          "description": "Link grid 1 - link 6",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_7_title",
+          "type": "text",
+          "description": "Link grid 1 - link 7",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_7_body",
+          "type": "text",
+          "description": "Link grid 1 - link 7",
+          "label": "Description",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_7_url",
+          "type": "text",
+          "description": "Link grid 1 - link 7",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_8_title",
+          "type": "text",
+          "description": "Link grid 1 - link 8",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_8_body",
+          "type": "text",
+          "description": "Link grid 1 - link 8",
+          "label": "Description",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_8_url",
+          "type": "text",
+          "description": "Link grid 1 - link 8",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_9_title",
+          "type": "text",
+          "description": "Link grid 1 - link 9",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_9_body",
+          "type": "text",
+          "description": "Link grid 1 - link 9",
+          "label": "Description",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_9_url",
+          "type": "text",
+          "description": "Link grid 1 - link 9",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_10_title",
+          "type": "text",
+          "description": "Link grid 1 - link 10",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_10_body",
+          "type": "text",
+          "description": "Link grid 1 - link 10",
+          "label": "Description",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_10_url",
+          "type": "text",
+          "description": "Link grid 1 - link 10",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_11_title",
+          "type": "text",
+          "description": "Link grid 1 - link 11",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_11_body",
+          "type": "text",
+          "description": "Link grid 1 - link 11",
+          "label": "Description",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_11_url",
+          "type": "text",
+          "description": "Link grid 1 - link 11",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_12_title",
+          "type": "text",
+          "description": "Link grid 1 - link 12",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_12_body",
+          "type": "text",
+          "description": "Link grid 1 - link 12",
+          "label": "Description",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_12_url",
+          "type": "text",
+          "description": "Link grid 1 - link 12",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_13_title",
+          "type": "text",
+          "description": "Link grid 1 - link 13",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_13_body",
+          "type": "text",
+          "description": "Link grid 1 - link 13",
+          "label": "Description",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_13_url",
+          "type": "text",
+          "description": "Link grid 1 - link 13",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_14_title",
+          "type": "text",
+          "description": "Link grid 1 - link 14",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_14_body",
+          "type": "text",
+          "description": "Link grid 1 - link 14",
+          "label": "Description",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_14_url",
+          "type": "text",
+          "description": "Link grid 1 - link 14",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_15_title",
+          "type": "text",
+          "description": "Link grid 1 - link 15",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_15_body",
+          "type": "text",
+          "description": "Link grid 1 - link 15",
+          "label": "Description",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_1_link_15_url",
+          "type": "text",
+          "description": "Link grid 1 - link 15",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_2_active",
+          "type": "checkbox",
+          "description": "Link grid 2",
+          "label": "Show",
+          "value": true
+        },
+        {
+          "identifier": "fe_fd_grid_2_title",
+          "type": "text",
+          "description": "Link grid 2",
+          "label": "Title",
+          "value": "Services"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_1_title",
+          "type": "text",
+          "description": "Link grid 2 - link 1",
+          "label": "Title",
+          "value": "Apprenticeship service"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_1_body",
+          "type": "text",
+          "description": "Link grid 2 - link 1",
+          "label": "Description",
+          "value": "Work with employers to recruit apprentices, add details of the apprentices they are going to train and manage details of the apprentices they are currently training."
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_1_url",
+          "type": "text",
+          "description": "Link grid 2 - link 1",
+          "label": "URL",
+          "value": "https://providers.apprenticeships.education.gov.uk/"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_2_title",
+          "type": "text",
+          "description": "Link grid 2 - link 2",
+          "label": "Title",
+          "value": "Manage your education and skills fundingfunding"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_2_body",
+          "type": "text",
+          "description": "Link grid 2 - link 2",
+          "label": "Description",
+          "value": "View your funding allocations and payments, sign documents and tell us about your subcontractors."
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_2_url",
+          "type": "text",
+          "description": "Link grid 2 - link 2",
+          "label": "URL",
+          "value": "https://skillsfunding.service.gov.uk/"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_3_title",
+          "type": "text",
+          "description": "Link grid 2 - link 3",
+          "label": "Title",
+          "value": "Submit learner data"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_3_body",
+          "type": "text",
+          "description": "Link grid 2 - link 3",
+          "label": "Description",
+          "value": "Validate and submit your Individualised learner records (ILR), Earnings adjustment statements (EAS), ESF (European Social Fund) supplementary data and Funding claims."
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_3_url",
+          "type": "text",
+          "description": "Link grid 2 - link 3",
+          "label": "URL",
+          "value": "https://submitlearnerdatabeta.fasst.org.uk/"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_4_title",
+          "type": "text",
+          "description": "Link grid 2 - link 4",
+          "label": "Title",
+          "value": "View your education data"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_4_body",
+          "type": "text",
+          "description": "Link grid 2 - link 4",
+          "label": "Description",
+          "value": "View interactive dashboards and benchmarking reports based on the data submitted by your organisation."
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_4_url",
+          "type": "text",
+          "description": "Link grid 2 - link 4",
+          "label": "URL",
+          "value": "https://viewyourdata.education.gov.uk/"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_5_title",
+          "type": "text",
+          "description": "Link grid 2 - link 5",
+          "label": "Title",
+          "value": "Learning records service"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_5_body",
+          "type": "text",
+          "description": "Link grid 2 - link 5",
+          "label": "Description",
+          "value": "Allocate a Unique Learner Number (ULN) to a learner and view achievement data."
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_5_url",
+          "type": "text",
+          "description": "Link grid 2 - link 5",
+          "label": "URL",
+          "value": "https://lrs.education.gov.uk/"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_6_title",
+          "type": "text",
+          "description": "Link grid 2 - link 6",
+          "label": "Title",
+          "value": "Find a learning aim"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_6_body",
+          "type": "text",
+          "description": "Link grid 2 - link 6",
+          "label": "Description",
+          "value": "Find the latest information on available Qualifications, Standards, Apprenticeships, T-Levels and Units."
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_6_url",
+          "type": "text",
+          "description": "Link grid 2 - link 6",
+          "label": "URL",
+          "value": "https://findalearningaimbeta.fasst.org.uk/"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_7_title",
+          "type": "text",
+          "description": "Link grid 2 - link 7",
+          "label": "Title",
+          "value": "Employer data service (EDS)"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_7_body",
+          "type": "text",
+          "description": "Link grid 2 - link 7",
+          "label": "Description",
+          "value": "Find employers and their Employer Reference Numbers (ERNs) to use on the Individualised Learning Record (ILR) or the Apprenticeship Vacancies system."
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_7_url",
+          "type": "text",
+          "description": "Link grid 2 - link 7",
+          "label": "URL",
+          "value": "https://edrs.education.gov.uk/"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_8_title",
+          "type": "text",
+          "description": "Link grid 2 - link 8",
+          "label": "Title",
+          "value": "Provider data self-assessment toolkit (PDSAT)"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_8_body",
+          "type": "text",
+          "description": "Link grid 2 - link 8",
+          "label": "Description",
+          "value": "Help complete your individualised learner record (ILR) data returns accurately and prepare for audit."
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_8_url",
+          "type": "text",
+          "description": "Link grid 2 - link 8",
+          "label": "URL",
+          "value": "https://www.gov.uk/government/publications/ilr-data-provider-data-self-assessment-toolkit-pdsat"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_9_title",
+          "type": "text",
+          "description": "Link grid 2 - link 9",
+          "label": "Title",
+          "value": "Funding information service (FIS)"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_9_body",
+          "type": "text",
+          "description": "Link grid 2 - link 9",
+          "label": "Description",
+          "value": "Check how accurate your Individualised Learner Record (ILR) data is before submission."
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_9_url",
+          "type": "text",
+          "description": "Link grid 2 - link 9",
+          "label": "URL",
+          "value": "https://submitlearnerdatabeta.fasst.org.uk/public-downloads/Desktop"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_10_title",
+          "type": "text",
+          "description": "Link grid 2 - link 10",
+          "label": "Title",
+          "value": "College financial data collections"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_10_body",
+          "type": "text",
+          "description": "Link grid 2 - link 10",
+          "label": "Description",
+          "value": "Upload financial statements and college financial returns. Use the College financial planning handbook for templates."
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_10_url",
+          "type": "text",
+          "description": "Link grid 2 - link 10",
+          "label": "URL",
+          "value": "https://onlinecollections.des.fasst.org.uk/cfp"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_11_title",
+          "type": "text",
+          "description": "Link grid 2 - link 11",
+          "label": "Title",
+          "value": "Publish to the course directory"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_11_body",
+          "type": "text",
+          "description": "Link grid 2 - link 11",
+          "label": "Description",
+          "value": "Update or remove courses on the course directory which publishes to the National Careers Service."
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_11_url",
+          "type": "text",
+          "description": "Link grid 2 - link 11",
+          "label": "URL",
+          "value": "https://coursedirectory.nationalcareersservice.org.uk/"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_12_title",
+          "type": "text",
+          "description": "Link grid 2 - link 12",
+          "label": "Title",
+          "value": "Support with delivering T Levels"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_12_body",
+          "type": "text",
+          "description": "Link grid 2 - link 12",
+          "label": "Description",
+          "value": "Find help, guidance and support materials for colleges, schools and other T Level providers."
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_12_url",
+          "type": "text",
+          "description": "Link grid 2 - link 12",
+          "label": "URL",
+          "value": "https://support.tlevels.gov.uk"
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_13_title",
+          "type": "text",
+          "description": "Link grid 2 - link 13",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_13_body",
+          "type": "text",
+          "description": "Link grid 2 - link 13",
+          "label": "Description",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_13_url",
+          "type": "text",
+          "description": "Link grid 2 - link 13",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_14_title",
+          "type": "text",
+          "description": "Link grid 2 - link 14",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_14_body",
+          "type": "text",
+          "description": "Link grid 2 - link 14",
+          "label": "Description",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_14_url",
+          "type": "text",
+          "description": "Link grid 2 - link 14",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_15_title",
+          "type": "text",
+          "description": "Link grid 2 - link 15",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_15_body",
+          "type": "text",
+          "description": "Link grid 2 - link 15",
+          "label": "Description",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_grid_2_link_15_url",
+          "type": "text",
+          "description": "Link grid 2 - link 15",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_list_active",
+          "type": "checkbox",
+          "description": "List list",
+          "label": "Show",
+          "value": true
+        },
+        {
+          "identifier": "fe_fd_list_title",
+          "type": "text",
+          "description": "List list",
+          "label": "Title",
+          "value": "Guidance"
+        },
+        {
+          "identifier": "fe_fd_list_link_1_title",
+          "type": "text",
+          "description": "Link list - link 1",
+          "label": "Title",
+          "value": "Register for DfE sign-in"
+        },
+        {
+          "identifier": "fe_fd_list_link_1_url",
+          "type": "text",
+          "description": "Link list - link 1",
+          "label": "URL",
+          "value": "https://services.signin.education.gov.uk"
+        },
+        {
+          "identifier": "fe_fd_list_link_2_title",
+          "type": "text",
+          "description": "Link list - link 2",
+          "label": "Title",
+          "value": "How to register for an IDAMS account"
+        },
+        {
+          "identifier": "fe_fd_list_link_2_url",
+          "type": "text",
+          "description": "Link list - link 2",
+          "label": "URL",
+          "value": "https://www.gov.uk/government/publications/how-to-register-for-an-idams-account"
+        },
+        {
+          "identifier": "fe_fd_list_link_3_title",
+          "type": "text",
+          "description": "Link list - link 3",
+          "label": "Title",
+          "value": "Keep up to date with news from the ESFA"
+        },
+        {
+          "identifier": "fe_fd_list_link_3_url",
+          "type": "text",
+          "description": "Link list - link 3",
+          "label": "URL",
+          "value": "https://esfahelp.education.gov.uk/hc/en-gb/articles/360015620420-Keep-up-to-date-with-news-from-the-ESFA"
+        },
+        {
+          "identifier": "fe_fd_list_link_4_title",
+          "type": "text",
+          "description": "Link list - link 4",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_list_link_4_url",
+          "type": "text",
+          "description": "Link list - link 4",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_list_link_5_title",
+          "type": "text",
+          "description": "Link list - link 5",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_list_link_5_url",
+          "type": "text",
+          "description": "Link list - link 5",
+          "label": "URL",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_list_link_6_title",
+          "type": "text",
+          "description": "Link list - link 6",
+          "label": "Title",
+          "value": ""
+        },
+        {
+          "identifier": "fe_fd_list_link_6_url",
+          "type": "text",
+          "description": "Link list - link 6",
+          "label": "URL",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "label": "Front Door 2",
+      "variables": [
+        {
+          "identifier": "fd_2_active",
+          "type": "checkbox",
+          "description": "Front door 2",
+          "label": "Show",
+          "value": true
+        },
+        {
+          "identifier": "fd_2_page_id",
+          "type": "text",
+          "description": "Zendesk page ID for front door 2",
+          "label": "Page ID",
+          "value": "360005134198"
+        },
+        {
+          "identifier": "fd_2_title",
+          "type": "text",
+          "description": "Front door 2",
+          "label": "Title",
+          "value": "the best front door"
+        },
+        {
+          "identifier": "fd_2_home_page_description",
+          "type": "text",
+          "description": "Front door 2",
+          "label": "Homepage description",
+          "value": "the best front door description"
+        },
+        {
+          "identifier": "fd_2_page_description",
+          "type": "text",
+          "description": "Front door 2",
+          "label": "Page description",
+          "value": "this is the best front door"
+        },
+        {
+          "identifier": "fd_2_calendar_active",
+          "type": "checkbox",
+          "description": "Calendar",
+          "label": "Show",
+          "value": false
+        },
+        {
+          "identifier": "fd_2_calendar_data_source",
+          "type": "text",
+          "description": "Google Sheets document ID",
+          "label": "Calendar data source",
+          "value": "1BDhR3WFnRfvqdj_DgBFXyH0SOHkUR9t"
+        },
+        {
+          "identifier": "fd_2_calendar_api_key",
+          "type": "text",
+          "description": "Google Sheets API key",
+          "label": "Calendar data authentication",
+          "value": "AIzaSyCHxvz9up0ndkjmbWOHQKcXJsjLoORe9dc"
+        },
+        {
+          "identifier": "fd_2_flagged_dates_title",
+          "type": "text",
+          "description": "Flagged calendar dates",
+          "label": "Title",
+          "value": "Change of date"
+        },
+        {
+          "identifier": "fd_2_calendar_title",
+          "type": "text",
+          "description": "Calendar",
+          "label": "Title",
+          "value": "Calendar"
+        },
+        {
+          "identifier": "fd_2_news_active",
+          "type": "checkbox",
+          "description": "News",
+          "label": "Show",
+          "value": false
+        },
+        {
+          "identifier": "fd_2_news_page_id",
+          "type": "text",
+          "description": "Zendesk page ID for news",
+          "label": "Page ID",
+          "value": "360005112658"
+        },
+        {
+          "identifier": "fd_2_news_title",
+          "type": "text",
+          "description": "News",
+          "label": "Title",
+          "value": "News"
+        },
+        {
+          "identifier": "fd_2_news_article_1_image",
+          "type": "file",
+          "description": "News article 1",
+          "label": "Image"
+        },
+        {
+          "identifier": "fd_2_news_article_2_image",
+          "type": "file",
+          "description": "News article 2",
+          "label": "Image"
+        },
+        {
+          "identifier": "fd_2_grid_1_active",
+          "type": "checkbox",
+          "description": "Link grid 1",
+          "label": "Show",
+          "value": true
+        },
+        {
+          "identifier": "fd_2_grid_1_title",
+          "type": "text",
+          "description": "Link grid 1",
+          "label": "Title",
+          "value": "This is the best section"
+        },
+        {
+          "identifier": "fd_2_grid_2_active",
+          "type": "checkbox",
+          "description": "Link grid 2",
+          "label": "Show",
+          "value": true
+        },
+        {
+          "identifier": "fd_2_grid_2_title",
+          "type": "text",
+          "description": "Link grid 2",
+          "label": "Title",
+          "value": "or is this the best?"
+        },
+        {
+          "identifier": "fd_2_list_active",
+          "type": "checkbox",
+          "description": "List list",
+          "label": "Show",
+          "value": false
+        },
+        {
+          "identifier": "fd_2_list_title",
+          "type": "text",
+          "description": "List list",
+          "label": "Title",
+          "value": "Guidance"
+        }
+      ]
+    },
+    {
+      "label": "Front Door 3",
+      "variables": [
+        {
+          "identifier": "fd_3_active",
+          "type": "checkbox",
+          "description": "Front door 3",
+          "label": "Show",
+          "value": true
+        },
+        {
+          "identifier": "fd_3_page_id",
+          "type": "text",
+          "description": "Zendesk page ID for front door 3",
+          "label": "Page ID",
+          "value": "360005134198"
+        },
+        {
+          "identifier": "fd_3_title",
+          "type": "text",
+          "description": "Front door 3",
+          "label": "Title",
+          "value": "actually, this is the best front door"
+        },
+        {
+          "identifier": "fd_3_home_page_description",
+          "type": "text",
+          "description": "Front door 3",
+          "label": "Homepage description",
+          "value": "hello"
+        },
+        {
+          "identifier": "fd_3_page_description",
+          "type": "text",
+          "description": "Front door 3",
+          "label": "Page description",
+          "value": "so this is the best front door?"
+        },
+        {
+          "identifier": "fd_3_calendar_active",
+          "type": "checkbox",
+          "description": "Calendar",
+          "label": "Show",
+          "value": true
+        },
+        {
+          "identifier": "fd_3_calendar_data_source",
+          "type": "text",
+          "description": "Google Sheets document ID",
+          "label": "Calendar data source",
+          "value": "1BDhR3WFnRfvqdj_DgBFXyH0SOHkUR9t"
+        },
+        {
+          "identifier": "fd_3_calendar_api_key",
+          "type": "text",
+          "description": "Google Sheets API key",
+          "label": "Calendar data authentication",
+          "value": "AIzaSyCHxvz9up0ndkjmbWOHQKcXJsjLoORe9dc"
+        },
+        {
+          "identifier": "fd_3_flagged_dates_title",
+          "type": "text",
+          "description": "Flagged calendar dates",
+          "label": "Title",
+          "value": "Change of date"
+        },
+        {
+          "identifier": "fd_3_calendar_title",
+          "type": "text",
+          "description": "Calendar",
+          "label": "Title",
+          "value": "The best calendar"
+        },
+        {
+          "identifier": "fd_3_news_active",
+          "type": "checkbox",
+          "description": "News",
+          "label": "Show",
+          "value": true
+        },
+        {
+          "identifier": "fd_3_news_page_id",
+          "type": "text",
+          "description": "Zendesk page ID for news",
+          "label": "Page ID",
+          "value": "360005112658"
+        },
+        {
+          "identifier": "fd_3_news_title",
+          "type": "text",
+          "description": "News",
+          "label": "Title",
+          "value": "the best news"
+        },
+        {
+          "identifier": "fd_3_news_article_1_image",
+          "type": "file",
+          "description": "News article 1",
+          "label": "Image"
+        },
+        {
+          "identifier": "fd_3_news_article_2_image",
+          "type": "file",
+          "description": "News article 2",
+          "label": "Image"
+        },
+        {
+          "identifier": "fd_3_grid_1_active",
+          "type": "checkbox",
+          "description": "Link grid 1",
+          "label": "Show",
+          "value": false
+        },
+        {
+          "identifier": "fd_3_grid_1_title",
+          "type": "text",
+          "description": "Link grid 1",
+          "label": "Title",
+          "value": "Funding rules"
+        },
+        {
+          "identifier": "fd_3_grid_2_active",
+          "type": "checkbox",
+          "description": "Link grid 2",
+          "label": "Show",
+          "value": false
+        },
+        {
+          "identifier": "fd_3_grid_2_title",
+          "type": "text",
+          "description": "Link grid 2",
+          "label": "Title",
+          "value": "Services"
+        },
+        {
+          "identifier": "fd_3_list_active",
+          "type": "checkbox",
+          "description": "List list",
+          "label": "Show",
+          "value": true
+        },
+        {
+          "identifier": "fd_3_list_title",
+          "type": "text",
+          "description": "List list",
+          "label": "Title",
+          "value": "these are the best links"
+        }
+      ]
+    }
+  ]
+}

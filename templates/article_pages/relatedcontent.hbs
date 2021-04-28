@@ -1,0 +1,64 @@
+<!-- Code for the back link -->  
+<div class="govuk-width-container">
+  
+      <a href="javascript:history.back()" class='govuk-back-link'>
+        Back
+      </a>
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+                <div>
+                  {{search submit=true class='app-search app-search--black-border' placeholder='Search ESFA support'}}
+                </div>
+            </div>
+        </div>  
+
+        <!-- Code for inserting title on page and populating the name of the article as title --> 
+        <main class="govuk-main-wrapper">
+                <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl">{{article.title}}</h1>
+                      </div>
+                </div>
+              <hr>
+        </main>
+</div>
+     
+ 
+  <!-- Code to add in and display the date and time the article was published, who it was published by and the date and time it was updated --> 
+  <div class="govuk-grid-column-two-thirds">
+    <div class="linespacing">
+      <p class="govuk-!-font-size-16 pstyling">Published {{date article.created_at timeago=false}}</p>        
+      <p class="govuk-!-font-size-16 pstyling">Last updated {{date article.updated_at timeago=false}}</p>
+      <p class="govuk-!-font-size-16 govuk-!-margin-bottom-7 pstyling">From <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/organisations/education-and-skills-funding-agency">Education and Skills Funding Agency</a></p> 
+      </div>
+    <!-- Code to add the body of the article and display it underneath the updated box --> 
+    <div data-apply-gds>
+    	{{article.body}}
+    </div>
+  </div>
+</div>
+
+{{#with article}}
+
+ <!-- Code for the votes and to record and capture the vote that the user has selected --> 
+<div id="feedbackcontainerarticle">
+    <div class="govuk-width-container" style="background-color: #1D70B8; margin-left:0px; word-wrap:break-word; line-spacing:1.6em;">
+      <div class="article-vote govuk-!-margin-top-6 articlevotesstyle">
+        {{vote 'up' id="testradioone" role='link' class='article-vote-hidden' selected_class="voted"}}
+        {{vote 'down' role='link' class='article-vote-hidden' selected_class='voted'}}
+          
+          <!-- Code to show the 'thank you message' after a vote has been recorded, see full code in CSS file -->
+          <span class="vote-prompt" style="color:#fff;">Is this page useful?</span>
+         <span class="article-vote-thanks display-text-white">
+          Thank you for your feedback. You can 
+        </span>
+          {{vote 'up' role='link' id="votedyes" class='article-vote article-vote-up' selected_class="voted"}}
+          {{vote 'down' role='link' id="votedno" class='article-vote article-vote-down' selected_class='voted'}}
+  
+      </div>
+    </div>
+    {{/with}}
+</div>
+</div>
+</div>  

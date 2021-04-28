@@ -1,0 +1,165 @@
+<div class="govuk-width-container govuk-!-margin-top-3">
+    <div class="govuk-breadcrumbs govuk-!-padding-left-0">
+    <a href="/hc/en-gb" class="govuk-back-link" data-back-link="topic">Back</a>
+	</div>
+   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds ">
+      <div>
+        {{search submit=true class='app-search app-search--black-border' placeholder='Search ESFA support'}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="app-section app-section--navy govuk-!-margin-top-6">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="user-details">
+          <div class="user-details__user">
+            <div class="user-details__user__icon govuk-!-margin-right-4" id="userIcon" style="background-image: url(https://secure.gravatar.com/avatar/ba1c3767f55da379f28645aa75d66df9?default=https%3A%2F%2Fassets.zendesk.com%2Fhc%2Fassets%2Fdefault_avatar.png&r=g);"></div>
+            <h3 class="govuk-heading-m govuk-!-margin-0" id="userName"></h3>
+          </div>
+          <div class="user-details__actions">
+            <div class="user-details__actions__button-wrapper">
+              <button data-action="edit-profile">Edit profile</button>
+            </div>
+            <div class="user-details__actions__button-wrapper">
+              <button data-action="change-password">Change password</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="app-section app-section--grey" style="padding:0;" >
+  <div class="govuk-width-container" >
+    <ul class="userprofilepagenav">
+      <li><a class="govuk-link" href="#" id="OverviewLink">Activity overview</a></li>
+      <li><a class="govuk-link" href="#" id="PostsLink">Posts</a></li>
+      <li><a class="govuk-link" href="#" id="RepliesLink">Replies</a></li> 
+      <li class="current"><a class="govuk-link" href="/hc/en-gb/subscriptions">Subscriptions</a></li> 
+    </ul>
+  </div>
+</div> 
+
+<!-- get user details -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    $.getJSON('/api/v2/users/me.json', function (data) {
+      var userProfilename = data.user.name;
+      $("#userName").html(userProfilename);
+  
+      if (data.user.photo) {
+        $('#userIcon').css('background-image', 'url(' + data.user.photo.content_url + ')');
+      }
+
+      document.getElementById("OverviewLink").href = '/hc/en-gb/profiles/' + data.user.id + '-' + userProfilename + '?filter_by=activities';
+      document.getElementById("PostsLink").href = '/hc/en-gb/profiles/' + data.user.id + '-' + userProfilename + '?filter_by=posts&sort_by=recent_user_activity'; 
+      document.getElementById("RepliesLink").href = '/hc/en-gb/profiles/' + data.user.id + '-' + userProfilename + '?filter_by=comments&sort_by=recent_user_activity';
+    }); 
+  });
+</script>
+
+
+<div class="govuk-width-container">
+
+ 
+<div class="container govuk-!-margin-bottom-9">
+  
+    <h3 class="my-activities-header govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-6">Subscriptions</h3>
+  
+  
+  <div id="userprofilenotification" class=" govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+      <div class="govuk-grid-row">
+         <div class="govuk-grid-column-full govuk-!-padding-left-3">
+            <div class="text" style="border: 5px solid rgb(212, 53, 28); padding: 20px; font-family: &quot;GDS Transport&quot;; font-style: normal; font-weight: bold; font-size: 19px; line-height: 26px; color: rgb(212, 53, 28);"></div>
+         </div>
+      </div>
+   </div>
+  
+   {{#if subscriptions}}
+      <table id="subscriptionstable" class="govuk-table">
+   
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-half">{{t 'title'}}</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">{{t 'type'}}</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">{{t 'subscription'}}</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+         {{#each subscriptions}}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"> {{#is type 'user'}}
+                  <img class="user-avatar" src="{{avatar_url}}" alt="">
+                {{/is}}
+                <a href="{{url}}" title="{{title}}" class="govuk-link striped-list-title">
+                  {{excerpt title characters=60}}
+                </a></th>
+              <td class="govuk-table__cell sub{{type}}">{{name}}</td>
+              <td class="unsubscribetobuttonf govuk-table__cell"><button linetype="{{name}}" class="govuk-button unsubscribeitem" apiid="{{id}}">Unsubscribe</button></td>
+            </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  
+  <div class="requests">
+    <div data-apply-gds>
+      {{pagination}}
+    <div>
+    {{else}}
+     	<h4 class="no-activities govuk-heading-s govuk-!-margin-bottom-2">You have not subscribed to any posts on ESFA Communities.</h4>
+      <p class="no-activities govuk-body">Visit <a href="/hc/en-gb" class="govuk-link">ESFA Communities</a> to subscribe to posts.</p>
+  </div>
+    {{/if}}
+  <div class="requestsonajax">
+      <h4 class="no-activities govuk-heading-s govuk-!-margin-bottom-2">You have not subscribed to any posts on ESFA Communities.</h4>
+      <p class="no-activities govuk-body">Visit <a href="/hc/en-gb" class="govuk-link">ESFA Communities</a> to subscribe to posts.</p>
+  </div>
+</div>
+
+</div>
+{{#if signed_in}}
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+  
+  $('.unsubscribeitem').on("click", function(e){
+    $(this).attr('disabled', true);
+    var removeItem = $(this).closest('tr');
+  
+    if($(this).attr('linetype') === "Post") {
+      helpers.deletePostSubscribeStatus($(this).attr('apiid'))
+      .done(function(r){
+        removeItem.remove();
+        if ($("#subscriptionstable tbody").children().length == 0) {
+            $("#subscriptionstable").hide();
+            $(".requestsonajax").show();
+        }
+      })
+      .fail(function(r){
+        $("#userprofilenotification").show();
+        $("#userprofilenotification .text").text("We had an issue unsubscribing you from this post");
+        $("#userprofilenotification .text").css('color', '#D4351C').css('border-color', '#D4351C');
+      })
+    } else if($(this).attr('linetype') === "Topic") {
+      helpers.deleteTopicSubscribeStatus($(this).attr('apiid'))
+      .done(function(r){
+        removeItem.remove();
+        if ($("#subscriptionstable tbody").children().length == 0) {
+            $("#subscriptionstable").hide();
+            $(".requestsonajax").show();
+        }
+      })
+      .fail(function(r){
+        $("#userprofilenotification").show();
+        $("#userprofilenotification .text").text("We had an issue unsubscribing you from this topic");
+        $("#userprofilenotification .text").css('color', '#D4351C').css('border-color', '#D4351C');
+      })
+    }
+  })
+});
+</script>
+{{/if}}

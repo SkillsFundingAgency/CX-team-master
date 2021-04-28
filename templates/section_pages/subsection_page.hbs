@@ -1,0 +1,69 @@
+<div class="govuk-width-container">
+   <a href="/hc/en-gb" class="govuk-back-link" data-back-link="article">Back</a>
+     <div class="govuk-grid-row">
+       <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+        <div>
+            {{search submit=true class='app-search app-search--black-border' placeholder='Search ESFA support'}}
+          </div>
+      </div>
+    </div>  
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-top-4 govuk-!-margin-bottom-6">All <span class="app-text--lowercase">{{section.name}}</span></h1>
+       {{#if section.description}}
+        <p class="govuk-body">{{section.description}}</p>
+      {{/if}}
+
+      {{#if section.sections}}
+	<div class="section-tree">
+ 		{{#each section.sections}}
+			<section class="section">
+   			<h3 class="govuk-heading-m">
+    			 {{name}}
+   			</h3>
+		    {{#if articles}}
+		      <ul class="article-list">
+			{{#each articles}}
+			  <li class="article-list-item{{#if promoted}} article-promoted{{/if}}">
+			    {{#if promoted}}
+			      <span data-title="{{t 'promoted'}}" class="icon-star"></span>
+			    {{/if}}
+			    <a href="{{url}}" class="article-list-link">{{title}}</a>
+			    {{#if internal}}
+			      <span class="icon-lock" title="{{t 'internal'}}"></span>
+			    {{/if}}
+			  </li>
+			{{/each}}
+		      </ul>
+		      {{#if more_articles}}
+			<a href="{{url}}" class="govuk-link">
+			 Show all articles for {{name}}
+			</a>
+		      {{/if}}
+		    {{/if}}
+		  </section>
+		  {{/each}}
+	</div>
+{{/if}}
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{#if section.articles}}
+        <ul class="govuk-list govuk-!-margin-bottom-7">
+          {{#each section.articles}}
+            <li class="govuk-!-margin-bottom-3">
+              <a href="{{url}}" class="govuk-link">{{title}}</a>
+            </li>
+          {{/each}}
+        </ul>
+      {{/if}}
+      <div data-apply-gds>
+        {{pagination}}
+      </div>
+    </div>
+  </div>
+</div>

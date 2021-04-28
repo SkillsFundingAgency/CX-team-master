@@ -1,0 +1,53 @@
+
+
+<!-- Code for the back link -->
+<div class="govuk-width-container">
+	<div class="govuk-breadcrumbs govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+	  <div href="/hc/en-gb" class="govuk-back-link govuk-!-margin-bottom-0 govuk-!-margin-top-0" style="cursor:pointer;" data-back-link="home">Back</div>
+	</div>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds govuk-!-margin-top-0">
+			<div>
+      	{{search submit=true class='app-search app-search--black-border' placeholder='Search ESFA support'}}
+      </div>
+		</div>
+	</div>
+	<!-- Code for inserting title on page and populating the name of the article as title -->
+	<main class="govuk-main-wrapper govuk-!-padding-bottom-4 govuk-!-padding-top-8">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-0">
+				<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">{{article.title}}</h1>
+				
+			</div>
+		</div>
+	</main>
+</div>
+<div class="govuk-width-container">
+	<main class="govuk-main-wrapper govuk-!-padding-top-0 govuk-!-padding-bottom-0">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-full">
+				<div class="article_border_bottom linespacing govuk-!-margin-bottom-7 govuk-!-padding-bottom-4">
+					<p class="govuk-body govuk-!-font-size-16 govuk-!-margin-bottom-1 pstyling">Published {{date article.created_at timeago=false}}</p>
+					<p class="govuk-body govuk-!-font-size-16 govuk-!-margin-bottom-1 pstyling">Last updated {{date article.updated_at timeago=false}}</p>
+					<p class="govuk-body govuk-!-font-size-16 govuk-!-margin-bottom-4 pstyling">From: 
+						<a class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold" href="https://www.gov.uk/government/organisations/education-and-skills-funding-agency">Education and Skills Funding Agency</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="govuk-grid-row govuk-!-margin-bottom-7">
+			<div class="govuk-grid-column-two-thirds" data-apply-gds>
+				<!-- Code to add the body of the article and display it underneath the updated box --> 
+        {{article.body}}
+			</div>
+		</div>
+
+	</main>
+  
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    articlePage('{{article.title}}');
+	});
+</script>

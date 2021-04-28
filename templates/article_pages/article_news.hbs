@@ -1,0 +1,135 @@
+<script>
+  	var title = 'ESFA help centre';
+
+  	{{#is section.name settings.fe_fd_title}}
+  		title += ' - {{settings.fe_fd_title}} - {{settings.fe_fd_news_title}}';
+  	{{/is}}
+    {{#is section.name settings.fd_2_title}}
+  		title += ' - {{settings.fd_2_title}} - {{settings.fd_2_news_title}}';
+    {{/is}}
+    {{#is section.name settings.fd_3_title}}
+  		title += ' - {{settings.fd_3_title}} - {{settings.fd_3_news_title}}';
+  	{{/is}}
+
+  	title += ' - {{article.title}}';
+    document.title = title;
+</script>
+
+<div class="govuk-width-container">
+	<div class="govuk-breadcrumbs govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+  	<ol class="breadcrumbs">
+    	<li title="Home"><a href="/hc/en-gb/">Home</a></li>
+      {{#is section.name settings.fe_fd_title}}
+        <li><a href="/hc/en-gb/categories/{{settings.fe_fd_page_id}}">{{settings.fe_fd_title}}</a></li>
+      	<li><a href="/hc/en-gb/sections/{{settings.fe_fd_news_page_id}}">All news articles</a></li>
+      {{/is}}
+      {{#is section.name settings.fd_2_title}}
+        <li><a href="/hc/en-gb/categories/{{settings.fd_2_page_id}}">{{settings.fd_2_title}}</a></li>
+      	<li><a href="/hc/en-gb/sections/{{settings.fd_2_news_page_id}}">All news articles</a></li>
+      {{/is}}
+      {{#is section.name settings.fd_3_title}}
+        <li><a href="/hc/en-gb/categories/{{settings.fd_3_page_id}}">{{settings.fd_3_title}}</a></li>
+      	<li><a href="/hc/en-gb/sections/{{settings.fd_2_news_page_id}}">All news articles</a></li>
+      {{/is}}
+    </ol>
+  </div>
+
+  <div class="govuk-grid-row">
+  	<div class="govuk-grid-column-two-thirds govuk-!-margin-top-0">
+			{{search submit=true scoped=true class='app-search app-search--black-border' placeholder='Search news articles'}}
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-caption-l govuk-!-margin-top-9">Published on {{date article.created_at class="remove-time-from-date" timeago=false}}</p>
+    </div>
+  </div>
+
+  <main class="govuk-main-wrapper govuk-!-padding-bottom-9 govuk-!-padding-top-2">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-0">
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">{{article.title}}</h1>
+        <div class="govuk-tag-list">
+          {{#is section.name settings.fe_fd_title}}
+        		<strong class="govuk-tag govuk-tag--furtherEducationAndTrainingProviders govuk-!-margin-bottom-2 govuk-!-margin-right-2">Further education and training providers</strong>
+          {{/is}}
+        	{{#if article.promoted}}
+          	<strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-2 govuk-!-margin-right-2">New</strong>
+          {{/if}}
+        	{{#each article.labels}}
+          	<strong class="govuk-tag govuk-!-margin-bottom-2 govuk-!-margin-right-2" data-custom-tag>{{identifier}}</strong>
+          {{/each}}
+        </div>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-7" />
+      </div>
+    </div>
+  	<div class="govuk-grid-row">
+    	<div class="govuk-grid-column-two-thirds" data-apply-gds>
+      	<!-- Code to add the body of the article and display it underneath the updated box -->
+      	{{article.body}}
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+    	</div>
+    	<div class="govuk-grid-column-one-third">
+	    	<!-- related_articles -->
+  	  </div>
+  	</div>
+  	<div class="govuk-grid-row">
+  		<div class="govuk-grid-column-full">
+     		{{#is section.name settings.fe_fd_title}}
+          <a href="/hc/en-gb/sections/{{settings.fe_fd_news_page_id}}" class="govuk-link govuk-body-m">View all news articles<svg class="govuk-!-margin-left-2" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L0.999999 9" stroke="#1D70B8"/><path d="M5 1L9 5L5 9" stroke="#1D70B8"/></svg></a>
+        {{/is}}
+        {{#is section.name settings.fd_2_title}}
+          <a href="/hc/en-gb/sections/{{settings.fd_2_news_page_id}}" class="govuk-link govuk-body-m">View all news articles<svg class="govuk-!-margin-left-2" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L0.999999 9" stroke="#1D70B8"/><path d="M5 1L9 5L5 9" stroke="#1D70B8"/></svg></a>
+        {{/is}}
+        {{#is section.name settings.fd_3_title}}
+          <a href="/hc/en-gb/sections/{{settings.fd_3_news_page_id}}" class="govuk-link govuk-body-m">View all news articles<svg class="govuk-!-margin-left-2" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L0.999999 9" stroke="#1D70B8"/><path d="M5 1L9 5L5 9" stroke="#1D70B8"/></svg></a>
+        {{/is}}
+      </div>
+  	</div>
+	</main>
+
+  {{#with article}}
+    <!-- Code for the votes and to record and capture the vote that the user has selected -->
+    <div id="feedbackcontainerarticle">
+      <div class="govuk-width-container" style="background-color: #1D70B8; margin-left:0px; word-wrap:break-word; line-spacing:1.6em;">
+        <div class="article-vote articlevotesstyle govuk-!-padding-bottom-2 govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-right-0" style="margin-bottom: -10px;">
+          <div id="feedbackbuttonyes">
+            <p class="govuk-body govuk-!-margin-0 vote-prompt" id="voteQuestion">
+              <span id="isPageUseful" class="govuk-!-font-weight-bold">Is this page useful?</span>
+              {{vote 'up' role='link' id="votedyes" class='article-voted-up govuk-link button-underline-article govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-0 govuk-!-margin-left-3 govuk-!-margin-right-2 vote-prompt__button' selected_class="voted"}}
+              {{vote 'down' role='link' id="votedno" class='article-voted-down govuk-link button-underline-article govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-0 govuk-!-margin-left-2 vote-prompt__button' selected_class='voted'}}
+              {{#vote 'up' class='vote-confirm govuk-link govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-0 govuk-!-margin-left-3 vote-prompt__button vote-prompt__button--change'}}<span class="button-underline-article">Change feedback</span>{{/vote}}
+            </p>
+            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-0 vote-prompt" id="voteResponse" style="display: none;">Thank you for your feedback</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/with}}
+
+  <div id="commentform" class="govuk-grid-row govuk-!-margin-top-3">
+    <div class="govuk-grid-column-two-thirds">
+      <form id="formoid" action="/api/v2/requests.json" title="articlefeedback" method="post">
+        <div class="govuk-character-count govuk-!-margin-top-4">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="Comment">Is there anything we could do to further improve this page? (optional)</label>
+            <textarea class="govuk-textarea govuk-js-character-count" id="Comment" name="Comment" rows="5" aria-describedby="Comment-info"></textarea>
+          </div>
+          <div id="Comment-info" class="govuk-hint govuk-character-count__message" aria-live="polite">You have <span id="chars">500</span> characters remaining</div>
+        </div>
+        <div class="govuk-!-margin-top-3">
+          <input class="govuk-button articlefeedbackbutton" type="submit" id="submitButton" name="submitButton" value="Submit">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="relatedcontentbar" style="background: #1D70B8; height: 10px;"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    articlePage('{{article.title}}');
+	});
+</script>

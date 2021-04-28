@@ -1,0 +1,436 @@
+<div class="govuk-width-container" data-feedback-form-title="{{settings.feedback_form_title}}">
+   <a href="/hc/en-gb" class="govuk-link govuk-back-link  govuk-!-margin-top-6 govuk-!-margin-bottom-6" data-back-link="article">Back</a>
+  <div class="govuk-error-summary govuk-!-margin-bottom-9 govuk-!-margin-top-0" id="errorSummary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary" style="display: none;">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list" id="errorSummaryList"></ul>
+    </div>
+  </div>
+  <div class="govuk-grid-row" id="submitFeedbackForm" style="display:none;">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl govuk-!-margin-top-6 govuk-!-margin-bottom-6" id="ticket-heading-extra">Submit feedback</h1>
+
+       <div id="govuk-feedback-form" class="govuk-form-group" style="display:none;">
+          <fieldset class="govuk-fieldset" id="question-1-response-survey">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Overall, how satisfied or dissatisfied are you with the Help Centre?
+              </h2>
+            </legend>
+            <div class="govuk-hint">
+                From 0 (very dissatisfied) to 10 (very satisfied)
+            </div>
+            <span id="satisfiederror" class="govuk-error-message">Please choose an option below</span>
+            <div class="govuk-radios govuk-radios--small radio-display-flex">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="feedback-question-1-0" name="feedback-question-1" type="radio" value="0">
+                <label class="govuk-label govuk-radios__label" for="feedback-question-1-0">0</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="feedback-question-1-1" name="feedback-question-1" type="radio" value="1">
+                <label class="govuk-label govuk-radios__label" for="feedback-question-1-1">1</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="feedback-question-1-2" name="feedback-question-1" type="radio" value="2">
+                <label class="govuk-label govuk-radios__label" for="feedback-question-1-2">2</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="feedback-question-1-3" name="feedback-question-1" type="radio" value="3">
+                <label class="govuk-label govuk-radios__label" for="feedback-question-1-3">3</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="feedback-question-1-4" name="feedback-question-1" type="radio" value="4">
+                <label class="govuk-label govuk-radios__label" for="feedback-question-1-4">4</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="feedback-question-1-5" name="feedback-question-1" type="radio" value="5">
+                <label class="govuk-label govuk-radios__label" for="feedback-question-1-5">5</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="feedback-question-1-6" name="feedback-question-1" type="radio" value="6">
+                <label class="govuk-label govuk-radios__label" for="feedback-question-1-6">6</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="feedback-question-1-7" name="feedback-question-1" type="radio" value="7">
+                <label class="govuk-label govuk-radios__label" for="feedback-question-1-7">7</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="feedback-question-1-8" name="feedback-question-1" type="radio" value="8">
+                <label class="govuk-label govuk-radios__label" for="feedback-question-1-8">8</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="feedback-question-1-9" name="feedback-question-1" type="radio" value="9">
+                <label class="govuk-label govuk-radios__label" for="feedback-question-1-9">9</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="feedback-question-1-10" name="feedback-question-1" type="radio" value="10">
+                <label class="govuk-label govuk-radios__label" for="feedback-question-1-10">10</label>
+              </div>
+            </div>
+          </fieldset>
+         <fieldset class="govuk-fieldset" id="question2-surveyfeedback">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              It was easy to find the information I need in the Help Centre
+            </h2>
+          </legend>
+          <div class="govuk-hint">
+              From 0 (very dissatisfied) to 10 (very satisfied)
+          </div>
+          <div class="govuk-radios govuk-radios--small radio-display-flex">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-3-0" name="changed-name-3" type="radio" value="0">
+              <label class="govuk-label govuk-radios__label" for="changed-name-3-0">0</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-3-1" name="changed-name-3" type="radio" value="1">
+              <label class="govuk-label govuk-radios__label" for="changed-name-3-1">1</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-3-2" name="changed-name-3" type="radio" value="2">
+              <label class="govuk-label govuk-radios__label" for="changed-name-3-2">2</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-3-3" name="changed-name-3" type="radio" value="3">
+              <label class="govuk-label govuk-radios__label" for="changed-name-3-3">3</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-3-4" name="changed-name-3" type="radio" value="4">
+              <label class="govuk-label govuk-radios__label" for="changed-name-3-4">4</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-3-5" name="changed-name-3" type="radio" value="5">
+              <label class="govuk-label govuk-radios__label" for="changed-name-3-5">5</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-3-6" name="changed-name-3" type="radio" value="6">
+              <label class="govuk-label govuk-radios__label" for="changed-name-3-6">6</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-3-7" name="changed-name-3" type="radio" value="7">
+              <label class="govuk-label govuk-radios__label" for="changed-name-3-7">7</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-3-8" name="changed-name-3" type="radio" value="8">
+              <label class="govuk-label govuk-radios__label" for="changed-name-3-8">8</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-3-9" name="changed-name-3" type="radio" value="9">
+              <label class="govuk-label govuk-radios__label" for="changed-name-3-9">9</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-3-10" name="changed-name-3" type="radio" value="10">
+              <label class="govuk-label govuk-radios__label" for="changed-name-3-10">10</label>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="govuk-fieldset" id="question4-example">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              The information found in the Help Centre is clear and easy to understand
+            </h2>
+          </legend>
+          <div class="govuk-hint">
+              From 0 (very dissatisfied) to 10 (very satisfied)
+          </div>
+          <div class="govuk-radios govuk-radios--small radio-display-flex">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-4-0" name="changed-name-4" type="radio" value="0">
+              <label class="govuk-label govuk-radios__label" for="changed-name-4-0">0</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-4-1" name="changed-name-4" type="radio" value="1">
+              <label class="govuk-label govuk-radios__label" for="changed-name-4-1">1</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-4-2" name="changed-name-4" type="radio" value="2">
+              <label class="govuk-label govuk-radios__label" for="changed-name-4-2">2</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-4-3" name="changed-name-4" type="radio" value="3">
+              <label class="govuk-label govuk-radios__label" for="changed-name-4-3">3</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-4-4" name="changed-name-4" type="radio" value="4">
+              <label class="govuk-label govuk-radios__label" for="changed-name-4-4">4</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-4-5" name="changed-name-4" type="radio" value="5">
+              <label class="govuk-label govuk-radios__label" for="changed-name-4-5">5</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-4-6" name="changed-name-4" type="radio" value="6">
+              <label class="govuk-label govuk-radios__label" for="changed-name-4-6">6</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-4-7" name="changed-name-4" type="radio" value="7">
+              <label class="govuk-label govuk-radios__label" for="changed-name-4-7">7</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-4-8" name="changed-name-4" type="radio" value="8">
+              <label class="govuk-label govuk-radios__label" for="changed-name-4-8">8</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-4-9" name="changed-name-4" type="radio" value="9">
+              <label class="govuk-label govuk-radios__label" for="changed-name-4-9">9</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-4-10" name="changed-name-4" type="radio" value="10">
+              <label class="govuk-label govuk-radios__label" for="changed-name-4-10">10</label>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="govuk-fieldset" id="question-5-test">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              The Help Centre provides all the necessary information I need
+            </h2>
+          </legend>
+          <div class="govuk-hint">
+              From 0 (very dissatisfied) to 10 (very satisfied)
+          </div>
+          <div class="govuk-radios govuk-radios--small radio-display-flex">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-5-0" name="changed-name-5" type="radio" value="0">
+              <label class="govuk-label govuk-radios__label" for="changed-name-5-0">0</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-5-1" name="changed-name-5" type="radio" value="1">
+              <label class="govuk-label govuk-radios__label" for="changed-name-5-1">1</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-5-2" name="changed-name-5" type="radio" value="2">
+              <label class="govuk-label govuk-radios__label" for="changed-name-5-2">2</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-5-3" name="changed-name-5" type="radio" value="3">
+              <label class="govuk-label govuk-radios__label" for="changed-name-5-3">3</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-5-4" name="changed-name-5" type="radio" value="4">
+              <label class="govuk-label govuk-radios__label" for="changed-name-5-4">4</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-5-5" name="changed-name-5" type="radio" value="5">
+              <label class="govuk-label govuk-radios__label" for="changed-name-5-5">5</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-5-6" name="changed-name-5" type="radio" value="6">
+              <label class="govuk-label govuk-radios__label" for="changed-name-5-6">6</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-5-7" name="changed-name-5" type="radio" value="7">
+              <label class="govuk-label govuk-radios__label" for="changed-name-5-7">7</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-5-8" name="changed-name-5" type="radio" value="8">
+              <label class="govuk-label govuk-radios__label" for="changed-name-5-8">8</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-5-9" name="changed-name-5" type="radio" value="9">
+              <label class="govuk-label govuk-radios__label" for="changed-name-5-9">9</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-5-10" name="changed-name-5" type="radio" value="10">
+              <label class="govuk-label govuk-radios__label" for="changed-name-5-10">10</label>
+            </div>
+          </div>
+        </fieldset>
+			</div>
+    </div>
+  </div>
+
+
+
+			<div id="feedbackForm" data-apply-gds>
+        {{#if settings.enquiries_form}}
+        <div id="enquiriesFormExtraFields" >
+          <h2 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-6" id="ticket-heading-enq">Submit an enquiry</h2>
+        	<!--Enquiries form -->
+        <!--<div style="display:none;">-->
+              {{#if signed_in}}
+            <div class="form-field string optional userEmailEnquiries govuk-form-group">
+                <label id="request_custom_fields_360010039397_label" for="request_custom_fields_360010039397" class="govuk-label">Email address<span class="optional">(optional)</span></label>
+                <input type="text" name="request[custom_fields][userEmail]" id="userEmail" aria-required="false" aria-labelledby="request_custom_fields_360010039397_label" class="govuk-input">
+            </div>
+              {{/if}}
+            <div class="display-block-link margin-top-6 govuk-!-margin-bottom-6">
+              <span class="govuk-link govuk-link-blue govuk-body" id="known-issues-selector"><img id="polygon-known-isues" class="not-triagleclicked" src="{{asset 'Triangle.svg'}}"><span class="enquiriesMoreInfo">Known issues</span></span>
+
+
+                  <div id="#known-issues-summary" class="known-issues known-issues-summary govuk-!-padding-left-2 govuk-!-margin-bottom-6" style="display:none;"><p id="known-issues-summary-para" class="govuk-body govuk-!-margin-bottom-0 two-thirds-overwrite">{{dc 'esfa_help_centre_enquiries_form'}}</p></div>
+
+            </div>
+
+            <p class="govuk-body govuk-!-margin-bottom-9">We will send you a confirmation email after you submit your enquiry.</p>
+            <h2 id="enquiryFormYourDetails" class="govuk-heading-l govuk-!-padding-top-0 govuk-!-margin-top-0">Your details</h2>
+          		{{#if signed_in}}
+          	 <div class="display-block-link margin-top-6 govuk-!-margin-bottom-6">
+              <span class="govuk-link govuk-body check-user-details" id="selector-details" href="#"><img id="user-details-triangle" class="not-triagleclicked" src="{{asset 'Triangle.svg'}}"><span class="enquiriesMoreInfo">Are your details incorrect?</span></span>
+
+
+                  <div id="#details-summary" style="display:none;" class="details-summary-enq known-issues govuk-!-padding-left-2 govuk-!-margin-bottom-6"><p class="govuk-body govuk-!-margin-bottom-0"><a href="" id="enquiriesFormUserProfile" class="govuk-link">Update your details</a> if they are incorrect before submitting an enquiry.</p></div>
+
+            </div>
+          	{{/if}}
+
+            <h2 id="enquiryFormHeading" class="govuk-heading-l govuk-!-margin-top-9">Enquiry details</h2>
+          	<!--Attach content-->
+          		<div id="attachDetails">
+              	{{dc 'esfa_help_centre_enquiries_attachments'}}
+          		</div>
+
+              <div id="for-apprenticeships" class="govuk-hint govuk-checkboxes__hint govuk-!-padding-left-2">
+          			This is for enquiries related to the apprenticeship service only. Enquiries related to ILR will need to be logged under data and systems.
+        			</div>
+
+
+          		  <div id="noukprn" style="display: flex; margin-top: -30px;" class="uk-prn-no known-issues govuk-!-padding-left-2 govuk-!-margin-bottom-6"><div style="width: auto;"><img src="{{asset 'Warningblack.svg'}}" style="display:block; margin-right: 10px;"></div><p class="govuk-body font-weight-700 govuk-!-margin-bottom-0 two-thirds-overwrite">UKPRNs are unique identifiers for training organisations.They help us deal with enquiries more efficiently and identify the requesting organisation.<br><br>If you are a provider, you must provide your UKPRN for us to help you with your enquiry.</p></div>
+
+          			   <div id="NoSuggestedArticle" style="display:none;" class="uk-prn-no known-issues govuk-!-padding-left-2 govuk-!-margin-bottom-6">
+             <h4 class="govuk-heading-s govuk-!-margin-bottom-2">Suggested articles</h4>
+             <p class="govuk-body govuk-!-margin-bottom-0 two-thirds-overwrite">There are no suggested articles for your enquiry subject.</p>
+          </div>
+
+            <div id="subject-hint" class="govuk-hint">
+              Provide as much detail as possible (maximum 200 characters).
+            </div>
+            <div id="description-hint" class="govuk-hint">
+            Provide as much detail as possible (maximum 5000 characters).
+            </div>
+        <!--</div>-->
+              <button id="enquiry-form-next" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button" > Next </button>
+
+        </div>
+        {{/if}}
+
+        {{request_form}}
+
+      </div>
+
+      <div class="govuk-main-wrapper govuk-!-padding-top-0" id="answerconfirmation" style="display:none;" role="main">
+            <div class="govuk-grid-row">
+               <div class="govuk-grid-column-two-thirds-from-desktop">
+
+                  <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Review your enquiry before submitting</h1>
+                  <p class="govuk-body govuk-!-margin-bottom-9">We will send you a confirmation email after you submit your enquiry.</p>
+                  <h3 class="govuk-heading-m govuk-!-padding-top-0">
+                  Your details
+                  </h3>
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                     <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"> Full name</dt>
+                        <dd class="govuk-summary-list__value govuk-!-padding-right-0">{{#if signed_in}}{{user_name}}{{/if}}
+                           <span id="confirmation-full-name"></span>
+                        </dd>
+
+                     </div>
+                     <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"> Email address</dt>
+                        <dd class="govuk-summary-list__value govuk-!-padding-right-0">
+                          {{#if signed_in}}
+                          	<span id="confirmation-email-submit"></span>
+                           {{/if}}
+                        </dd>
+
+                     </div>
+                     <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"> Organisation name</dt>
+                        <dd class="govuk-summary-list__value govuk-!-padding-right-0">
+                           <span id="provide-name-confirm"></span>
+                        </dd>
+
+                     </div>
+                     <div id="uk-prn-selection-confirm" class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"> UKPRN</dt>
+                        <dd class="govuk-summary-list__value govuk-!-padding-right-0">
+                           <p class="govuk-body">
+                              <span id="ilr-number-confirm"></span>
+                           </p>
+                        </dd>
+
+                     </div>
+                  </dl>
+                  <h3 class="govuk-heading-m">Enquiry details</h3>
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-6">
+                     <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"> Category</dt>
+                        <dd class="govuk-summary-list__value govuk-!-padding-right-0">
+                          <span id="enq-confirmation-details-enquiry">Details</span>
+                        </dd>
+
+                     </div>
+                     <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"> Subject</dt>
+                        <dd class="govuk-summary-list__value govuk-!-padding-right-0">
+                           <span id="enq-subject-text"></span>
+                        </dd>
+
+                     </div>
+                     <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"> Description</dt>
+                        <dd class="govuk-summary-list__value govuk-!-padding-right-0">
+                           <p class="govuk-body">
+                              <span id="enq-subject-descrip"></span>
+                           </p>
+                        </dd>
+
+                     </div>
+                     <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"> Contact preference</dt>
+                        <dd class="govuk-summary-list__value govuk-!-padding-right-0"><span id="user-contact-preference-select">Email</span></dd>
+                        <dd class="govuk-summary-list__actions"></dd>
+                     </div>
+                     <div id="uk-telephone-select-summary" class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key"> UK telephone number</dt>
+                        <dd class="govuk-summary-list__value govuk-!-padding-right-0">
+                           <span id="conf-tele-no"></span>
+                        </dd>
+
+                     </div>
+                  </dl>
+                    <button id="submit-enq-form" class="govuk-button govuk-!-margin-left-0 govuk-!-margin-bottom-4" data-module="govuk-button" > Submit enquiry </button>
+                  <button id="enquiry-form-edit" class="govuk-button govuk-button--secondary govuk-!-margin-left-2 govuk-!-margin-bottom-4" data-module="govuk-button" > Edit enquiry </button>
+               </div>
+            </div>
+         </div>
+
+    </div>
+
+
+<!-- ADDITIONAL FORM ELEMENTS - inserted into form by script.js feedBackForm function -->
+<div style="display: none;">
+
+  <!-- wrapper for request_custom_fields_360010659118 -->
+  <div class="satisfaction" id="request_custom_fields_360010659118_wrapper">
+    <div class="satisfaction__item"><label class="govuk-label satisfaction__item__label">Very dissatisfied</label></div>
+    <div class="satisfaction__item satisfaction__item--options" id="request_custom_fields_360010659118_wrapper_options"></div>
+    <div class="satisfaction__item"><label class="govuk-label satisfaction__item__label">Very satisfied</label></div>
+  </div>
+
+  <!-- response for request_custom_fields_360010698437 -->
+  <div class="govuk-inset-text govuk-!-margin-top-0" id="request_custom_fields_360010698437_response" style="display: none;">Email <a class="govuk-link" href="mailto:customer.experience@education.gov.uk">customer.experience@education.gov.uk</a> to get involved in research.</div>
+
+  <!-- word count for request_custom_fields_360010659138 -->
+  <div class="govuk-hint govuk-character-count__message" data-max-words="100" id="request_custom_fields_360010659138_word_count" aria-live="polite">You have 100 words remaining</div>
+
+  <!-- word count for request_custom_fields_360010659158 -->
+  <div class="govuk-hint govuk-character-count__message" data-max-words="100" id="request_custom_fields_360010659158_word_count" aria-live="polite">You have 100 words remaining</div>
+</div>
+
+<script>
+	//Add a click event for the known issues selector on the enquiries form
+  $( "#known-issues-selector" ).click(function() {
+  		$('.known-issues-summary').toggle();
+  		$('#polygon-known-isues').toggleClass('triagleclicked');
+	});
+
+  //Add a click event for the edit enquiry selector
+  $( ".check-user-details" ).click(function() {
+  		$('.details-summary-enq').toggle();
+  		$('#user-details-triangle').toggleClass('triagleclicked');
+	});
+
+</script>

@@ -1,0 +1,62 @@
+<script>
+  	var title = 'ESFA help centre';
+
+  	{{#is section.name settings.fe_fd_title}}
+  		title += ' - {{settings.fe_fd_title}} - {{settings.fe_fd_news_title}}';
+  	{{/is}}
+    {{#is section.name settings.fd_2_title}}
+  		title += ' - {{settings.fd_2_title}} - {{settings.fd_2_news_title}}';
+    {{/is}}
+    {{#is section.name settings.fd_3_title}}
+  		title += ' - {{settings.fd_3_title}} - {{settings.fd_3_news_title}}';
+  	{{/is}}
+
+    document.title = title;
+</script>
+
+<div class="govuk-width-container">
+	<div class="govuk-breadcrumbs govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+		<ol class="breadcrumbs">
+			<li title="Home"><a href="/hc/en-gb/">Home</a></li>
+			{{#is section.name settings.fe_fd_title}}
+				<li><a href="/hc/en-gb/categories/{{settings.fe_fd_page_id}}">{{settings.fe_fd_title}}</a></li>
+			{{/is}}
+			{{#is section.name settings.fd_2_title}}
+				<li><a href="/hc/en-gb/categories/{{settings.fd_2_page_id}}">{{settings.fd_2_title}}</a></li>
+			{{/is}}
+			{{#is section.name settings.fd_3_title}}
+				<li><a href="/hc/en-gb/categories/{{settings.fd_3_page_id}}">{{settings.fd_3_title}}</a></li>
+			{{/is}}
+		</ol>
+	</div>
+</div>
+
+<section class="app-section app-section--navy govuk-!-margin-top-6">
+	<div class="govuk-width-container">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-full">
+				<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">All news articles</h1>
+			</div>
+			<div class="govuk-grid-column-two-thirds">
+				{{search submit=true class='app-search' scoped=true placeholder='Search news articles'}}
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="govuk-width-container">
+	<div class="feature-panels feature-panels--grid govuk-!-margin-bottom-6 govuk-!-margin-top-9">
+		{{#each section.articles}}
+			<div class="feature-panels__panel feature-panels__panel--front-door">
+				<a class="feature-panels__panel__link" href="{{url}}">
+					<span class="govuk-caption-m govuk-!-font-size-16 govuk-!-margin-bottom-1">Published on {{date created_at class="remove-time-from-date" timeago=false}}</span>
+					<h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{title}}</h3>
+					<p class="govuk-body">{{excerpt body characters=200}}</p>
+				</a>
+			</div>
+		{{/each}}
+	</div>
+	<div data-apply-gds>
+		{{pagination}}
+	</div>
+</div>

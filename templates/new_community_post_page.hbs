@@ -1,0 +1,172 @@
+<div class="govuk-width-container new_community_post_page">
+	<div class="govuk-width-container topicpage govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+  	<div class="govuk-breadcrumbs">
+    	<ol class="breadcrumbs">
+      	<li title="Home"><a href="/hc/en-gb/">Home</a></li>
+     		<li id="FEbreadcrumb" title="Home"><a href="{{dc 'esfa_help_centre_-_communities'}}">Further education and training providers community</a></li>
+      	<li id="AMSbreadcrumb" title="Home"><a href="/hc/en-gb/community/topics/{{settings.provider_academies}}-Academies">Academies and maintained schools community</a></li>
+    	</ol>
+		</div>
+	</div>
+
+  {{#form 'post' class='new_community_post'}}
+		<main id="create_new_post" class="govuk-main-wrapper govuk-!-padding-bottom-2" >
+      <div class="govuk-error-summary display-none {{#validate 'title'}}display-important{{/validate}} {{#validate 'topic'}}display-important{{/validate}}" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            {{#validate 'topic'}} 
+              <li>
+                <a href="#newposttopicselect">Select the type of organisation you are posting from</a>
+              </li> 
+            {{/validate}}
+            {{#validate 'title'}}
+              <li>
+                <a href="#entertitlepostpage">Input a title</a>
+              </li>
+            {{/validate}}
+          </ul>
+        </div>
+      </div> 
+
+      <!--Header information for the new post page -->
+      <div class="">
+        <h1 class="govuk-heading-xl govuk-!-margin-top-3 govuk-!-margin-bottom-4">Create new post</h1>
+        <p class="govuk-body font-color-grey govuk-!-margin-bottom-2">Before creating a new post:</p>
+        <ul class="govuk-list govuk-list--bullet font-color-grey">
+          <li>consider searching the community to see if your question has been asked before</li>
+          <li>avoid sharing information that could identify individual learners</li>
+          <li>remember that the ESFA cannot guarantee the accuracy of any information shared with the community</li>
+        </ul>
+      </div>
+    </main>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-form-group {{#validate 'topic'}}govuk-form-group--error{{/validate}}" id="newposttopicselect">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-0">
+              <h4 class="govuk-heading-s govuk-!-margin-bottom-2">
+               {{#required 'topic'}}Where are you posting from?{{/required}} 
+              </h4>
+              {{#validate 'topic'}}
+                <span id="input-title-error" class="govuk-error-message"> <span class="govuk-visually-hidden">Error:</span> Select the type of organisation you are posting from </span>
+              {{/validate}}
+            </legend>
+            <div class="academiesradioselection govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="academiesSelect" name="topicselection" type="radio" value="{{settings.provider_academies}}">
+                <label class="govuk-label govuk-radios__label govuk-!-padding-left-2" for="academiesSelect">Academies</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="maintainedSchoolsSelect" name="topicselection" type="radio" value="{{settings.provider_maintained_schools}}">
+                <label class="govuk-label govuk-radios__label govuk-!-padding-left-2" for="maintainedSchoolsSelect">Maintained schools</label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="localAuthoritiesSelect" name="topicselection" type="radio" value="{{settings.provider_local_authorities}}">
+                <label class="govuk-label govuk-radios__label govuk-!-padding-left-2" for="localAuthoritiesSelect">Local authorities</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <!--Code for the topic selector -->
+        {{select 'topic' class='topicselectorpost'}}
+        <div id="entertitlepostpage" class="govuk-form-group {{#validate 'title'}}govuk-form-group--error{{/validate}}">
+          {{label 'title' class="govuk-heading-s govuk-!-margin-bottom-2"}} {{#validate 'title'}}
+          <span id="input-title-error" class="govuk-error-message"> <span class="govuk-visually-hidden">Error:</span> Input a title </span>
+          {{/validate}} {{input 'title' autofocus=true class='govuk-input max-characters-64' id="titlecharacters"}}
+          <p class="govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+            <label style="font-style: normal; font-weight: 300; font-size: 18px; line-height: 25px;">
+              <span class="govuk-label govuk-!-margin-bottom-0 govuk-!-margin-top-2" style="color: #667777;">You have <span id="chars" class="govuk-!-margin-bottom-0">64</span> characters remaining</span>
+            </label>
+          </p>
+          <script>
+            var maxLength = 64;
+            $("#titlecharacters").keyup(function () {
+              var length = $(this).val().length;
+              var length = maxLength - length;
+              $("#chars").text(length);
+            });
+          </script>
+          {{suggestion_list class='suggestion-list'}}
+          <!--Code to handle an error if there is one -->
+          {{#validate 'title'}}
+            <div class="notification notification-error notification-inline">
+              {{error 'title'}}
+            </div>
+          {{/validate}}
+        </div>
+      </div>
+    </div>
+
+    <div id="community-textarea" class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-form-group" id="newcommunitypostpage">
+          {{#label 'details' class='govuk-heading-s govuk-!-margin-bottom-0'}}What would you like to discuss with the community?{{/label}}
+          <div id="wysiwygplaceholdertext" class="govuk-!-padding-2 govuk-!-margin-top-2" style="height: 200px; border: 1px solid black;">
+            <p class="govuk-body" style="color: #626A6E;">Type here. Drag or paste images into this box. Tag other users with the ‘@’ symbol followed by their username.</p>
+          </div>
+          {{#validate 'title'}}
+            <script>     
+              $(document).ready(function () {
+                $('#wysiwygplaceholdertext').remove();
+                $('#hc-wysiwyg').show();
+              });
+            </script>
+          {{else}}
+            <script> 
+              $( "#wysiwygplaceholdertext" ).click(function() {	
+                $('#wysiwygplaceholdertext').remove();
+                $('#hc-wysiwyg').show();
+                });
+              </script>
+          {{/validate}}
+          {{#validate 'details'}}testclassfail{{/validate}}
+          {{wysiwyg 'details' class='govuk-textarea max-characters-1000'}}
+          <span class="govuk-label govuk-!-margin-bottom-2 govuk-!-margin-top-2" style="color: #667777;">Maximum 1000 characters.</span>
+        </div>
+
+        {{#required 'details'}}
+          {{label 'details'}}
+        {{/required}}
+        {{#validate 'details'}}
+          <div class="notification notification-error notification-inline">
+            {{error 'details'}}
+          </div>
+        {{/validate}}
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div id="createpublishpost" class="govuk-form-group">
+          {{input type='submit' class='govuk-button submit-button-postpage' value='Publish post'}}
+        </div>
+      </div>
+    </div>
+  {{/form}}
+</div>
+ 
+<script>
+  // update topic when user changes custom radio buttons
+  $('input[name="topicselection"]').change(function() {
+  	$('#community_post_topic_id').val($(this).val());
+  });
+
+  // select and show AMS audience on ready
+  $(document).ready(function() {
+  	var amsTopicIds = ['{{settings.provider_academies}}', '{{settings.provider_maintained_schools}}', '{{settings.provider_local_authorities}}'];
+    var currentTopic = $('#community_post_topic_id').val();
+  
+  	if (amsTopicIds.indexOf(currentTopic) > -1) {
+  		//Serve the correct breadcrumb
+  		$('#AMSbreadcrumb').show();
+  		$('#FEbreadcrumb').hide();
+  		
+  		$('input[name="topicselection"][value="' + currentTopic + '"]').prop('checked', true);
+  		$('#newposttopicselect').show();
+  	} else {
+  		$('#AMSbreadcrumb').hide();
+  		$('#FEbreadcrumb').show();
+  	}
+  });
+</script>

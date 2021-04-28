@@ -1,0 +1,477 @@
+<script>
+    document.title="ESFA help centre - {{settings.fe_fd_title}}";
+</script>
+
+<div class="govuk-width-container">
+	<div class="govuk-breadcrumbs govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+		<ol class="breadcrumbs">
+    	<li title="Home"><a href="/hc/en-gb/">Home</a></li>
+  	</ol>
+	</div>
+</div>
+
+<section class="app-section app-section--navy govuk-!-margin-top-6">
+  <div class="govuk-width-container">
+		<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">{{settings.fe_fd_title}}</h1>
+    <p class="govuk-body-l govuk-!-margin-bottom-0">{{settings.fe_fd_page_description}}</p>
+  </div>
+</section>
+
+<div class="section-scroller govuk-!-padding-top-4">
+  <ul class="govuk-width-container govuk-!-margin-bottom-0 govuk-!-margin-top-0 govuk-!-padding-0">
+    {{#if settings.fe_fd_calendar_active}}
+    	<li class="section-scroller__item govuk-!-margin-bottom-4 govuk-!-margin-right-4 govuk-!-padding-right-4" data-flagged-dates-link><a href="#fe-fd-flagged-dates" class="govuk-link govuk-!-font-size-19 section-scroller__link" data-scroll-to="fe-fd-flagged-dates">{{settings.fe_fd_flagged_dates_title}}</a></li>
+    	<li class="section-scroller__item govuk-!-margin-bottom-4 govuk-!-margin-right-4 govuk-!-padding-right-4"><a href="#fe-fd-calendar" class="govuk-link govuk-!-font-size-19 section-scroller__link" data-scroll-to="fe-fd-calendar">{{settings.fe_fd_calendar_title}}</a></li>
+    {{/if}}
+    {{#if settings.fe_fd_news_active}}
+    	<li class="section-scroller__item govuk-!-margin-bottom-4 govuk-!-margin-right-4 govuk-!-padding-right-4"><a href="#fe-fd-news" class="govuk-link govuk-!-font-size-19 section-scroller__link" data-scroll-to="fe-fd-news">{{settings.fe_fd_news_title}}</a></li>
+    {{/if}}
+    {{#if settings.fe_fd_grid_1_active}}
+    	<li class="section-scroller__item govuk-!-margin-bottom-4 govuk-!-margin-right-4 govuk-!-padding-right-4"><a href="#fe-fd-link-grid-1" class="govuk-link govuk-!-font-size-19 section-scroller__link" data-scroll-to="fe-fd-link-grid-1">{{settings.fe_fd_grid_1_title}}</a></li>
+    {{/if}}
+    {{#if settings.fe_fd_grid_2_active}}
+    	<li class="section-scroller__item govuk-!-margin-bottom-4 govuk-!-margin-right-4 govuk-!-padding-right-4"><a href="#fe-fd-link-grid-2" class="govuk-link govuk-!-font-size-19 section-scroller__link" data-scroll-to="fe-fd-link-grid-2">{{settings.fe_fd_grid_2_title}}</a></li>
+    {{/if}}
+    {{#if settings.fe_fd_list_active}}
+    	<li class="section-scroller__item govuk-!-margin-bottom-4"><a href="#fe-fd-link-list" class="govuk-link govuk-!-font-size-19 section-scroller__link" data-scroll-to="fe-fd-link-list">{{settings.fe_fd_list_title}}</a></li>
+  	{{/if}}
+  </ul>
+</div>
+
+<div class="govuk-width-container govuk-!-margin-bottom-9">
+  {{#if settings.fe_fd_calendar_active}}
+    <section id="fe-fd-flagged-dates" data-flagged-dates>
+      <div class="accordion-header govuk-!-margin-bottom-6 govuk-!-margin-top-9">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">{{settings.fe_fd_flagged_dates_title}}</h2>
+        <a href="#" class="govuk-link" data-accordion-link="fe-fd-flagged-dates"><span data-accordion-state>Hide</span> <span class="lower-case">{{settings.fe_fd_flagged_dates_title}}</span></a>
+      </div>
+      <div class="section-body" data-accordion-body="fe-fd-flagged-dates" data-set-min-height="flagged-dates">
+        <div class="feature-panels" data-flagged-list>
+          <div class="feature-panels__panel feature-panels__panel--full feature-panels__panel--pinned" data-flagged-template>
+            <div class="feature-panels__panel__inner">
+              <div class="event-flagged-top">
+                <span class="govuk-caption-m govuk-!-font-size-16 govuk-!-margin-bottom-1" data-flagged-date></span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8.75 1.75C8.75 1.28587 8.56563 0.840752 8.23744 0.512563C7.90925 0.184374 7.46413 0 7 0L0 0V14H1.16667V7.58333H5.83333V8.16667C5.83333 8.6308 6.01771 9.07591 6.3459 9.4041C6.67408 9.73229 7.1192 9.91667 7.58333 9.91667H14V2.33333H8.75V1.75ZM1.16667 1.16667H7C7.15471 1.16667 7.30308 1.22812 7.41248 1.33752C7.52187 1.44692 7.58333 1.59529 7.58333 1.75V6.41667H1.16667V1.16667ZM12.8333 3.5V8.75H7.58333C7.42862 8.75 7.28025 8.68854 7.17085 8.57915C7.06146 8.46975 7 8.32138 7 8.16667V7.58333H8.75V3.5H12.8333Z" fill="#0B0C0C"/>
+    </svg>
+              </div>
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-2" data-flagged-title></h3>
+              <div class="event-description-wrapper" data-flagged-description-wrapper>
+                <p class="govuk-body govuk-!-margin-right-4 event-description" data-flagged-description></p>
+                <a class="govuk-link govuk-!-margin-bottom-4 event-description-toggle" href="#" data-flagged-description-toggle>
+                  <span class="event-description-toggle__more">Show more</span>
+                  <span class="event-description-toggle__less">Show less</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="fe-fd-calendar">
+      <div class="accordion-header govuk-!-margin-bottom-6 govuk-!-margin-top-9">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">{{settings.fe_fd_calendar_title}}</h2>
+        <a href="#" class="govuk-link" data-accordion-link="fe-fd-calendar"><span data-accordion-state>Hide</span> <span class="lower-case">{{settings.fe_fd_calendar_title}}</span></a>
+      </div>
+      <div class="section-body" data-accordion-body="fe-fd-calendar">
+        <div class="spinner" data-calendar-state="loading">
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Loading <span class="lower-case">{{settings.fe_fd_calendar_title}}</span>&hellip;</p>
+          <div class="spinner__animation"></div>
+        </div>
+        <p class="govuk-body" data-calendar-state="error">{{settings.fe_fd_calendar_title}} could not be loaded at this time. Please try again later.</p>
+        <div class="govuk-grid-row event-wrapper" data-calendar-state="loaded">
+          <div class="govuk-grid-column-one-third">
+              <div id="events-calendar" data-set-min-height="events-calendar"></div>
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            <div class="event-list">
+              <p class="govuk-body" data-no-dates>There are no <span class="lower-case">{{settings.fe_fd_calendar_title}}</span> to display.</p>
+              <div data-dates data-set-min-height="calendar">
+                <div class="feature-panels__panel feature-panels__panel--front-door feature-panels__panel--full" data-date-template>
+                  <div class="feature-panels__panel__inner">
+                    <span class="govuk-caption-m govuk-!-font-size-16 govuk-!-margin-bottom-1" data-date-date></span>
+                    <h3 class="govuk-heading-s govuk-!-margin-bottom-2" data-date-title></h3>
+                    <div class="event-description-wrapper" data-date-description-wrapper>
+                      <p class="govuk-body govuk-!-margin-right-4 event-description" data-date-description></p>
+                      <a class="govuk-link govuk-!-margin-bottom-4 event-description-toggle" href="#" data-date-description-toggle>
+                        <span class="event-description-toggle__more">Show more</span>
+                        <span class="event-description-toggle__less">Show less</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="event-pagination govuk-!-margin-top-6" data-event-pagination>
+                <li class="event-pagination__item">
+                  <a class="govuk-link govuk-!-font-size-19" data-event-pagination-direction="previous" href="#"><svg class="govuk-!-margin-right-1" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 9L5 5L9 1" stroke="#1D70B8"/><path d="M5 9L1 5L5 1" stroke="#1D70B8"/></svg>Previous</a>
+                </li>
+                <li class="event-pagination__item">
+                  <a class="govuk-link govuk-!-font-size-19" data-event-pagination-direction="next" href="#">Next<svg class="govuk-!-margin-left-1" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L0.999999 9" stroke="#1D70B8"/><path d="M5 1L9 5L5 9" stroke="#1D70B8"/></svg></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{/if}}
+  {{#if settings.fe_fd_news_active}}
+    <section id="fe-fd-news">
+      <div class="accordion-header govuk-!-margin-bottom-6 govuk-!-margin-top-9">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">{{settings.fe_fd_news_title}}</h2>
+        <a href="#" class="govuk-link" data-accordion-link="fe-fd-news"><span data-accordion-state>Hide</span> <span class="lower-case">{{settings.fe_fd_news_title}}</span></a>
+      </div>
+      <div class="section-body" data-accordion-body="fe-fd-news">
+        <div class="feature-panels">
+          {{#each sections}}
+            {{#is name 'Further education and training providers'}}
+              {{#each articles}}
+                {{#is @index 0}}
+                  <div class="feature-panels__panel feature-panels__panel--front-door feature-panels__panel--full feature-panels__panel--with-image">
+                    <div class="feature-panels__panel__image" style="background-image:url({{../../settings.fe_fd_news_article_1_image}})"></div>
+                    <a class="feature-panels__panel__link" href="{{url}}">
+                      <time class="govuk-caption-m govuk-!-font-size-16 govuk-!-margin-bottom-1">Published on {{date created_at class="remove-time-from-date" timeago=false}}</time>
+                      <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{title}}</h3>
+                      <p class="govuk-body">{{excerpt body characters=160}}</p>
+                    </a>
+                  </div>
+                {{/is}}
+                {{#is @index 1}}
+                  <div class="feature-panels__panel feature-panels__panel--front-door feature-panels__panel--full feature-panels__panel--with-image">
+                    <div class="feature-panels__panel__image" style="background-image:url({{../../settings.fe_fd_news_article_2_image}})"></div>
+                    <a class="feature-panels__panel__link" href="{{url}}">
+                      <time class="govuk-caption-m govuk-!-font-size-16 govuk-!-margin-bottom-1">Published on {{date created_at class="remove-time-from-date" timeago=false}}</time>
+                      <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{title}}</h3>
+                      <p class="govuk-body">{{excerpt body characters=160}}</p>
+                    </a>
+                  </div>
+                {{/is}}
+              {{/each}}
+            {{/is}}
+          {{/each}}
+      	</div>
+      	<div class="govuk-!-margin-top-6">
+          <a href="/hc/en-gb/sections/{{settings.fe_fd_news_page_id}}" class="govuk-link govuk-!-font-size-19">View all news articles<svg class="govuk-!-margin-left-2" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L0.999999 9" stroke="#1D70B8"/><path d="M5 1L9 5L5 9" stroke="#1D70B8"/></svg></a>
+        </div>
+      </div>
+    </section>
+  {{/if}}
+  {{#if settings.fe_fd_grid_1_active}}
+    <section id="fe-fd-link-grid-1">
+      <div class="accordion-header govuk-!-margin-bottom-6 govuk-!-margin-top-9">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_title}}</h2>
+        <a href="#" class="govuk-link" data-accordion-link="fe-fd-link-grid-1"><span data-accordion-state>Hide</span> <span class="lower-case">{{settings.fe_fd_grid_1_title}}</span></a>
+      </div>
+      <div class="section-body" data-accordion-body="fe-fd-link-grid-1">
+        <div class="feature-panels feature-panels--grid">
+          {{#if settings.fe_fd_grid_1_link_1_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_1_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_1_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_1_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_2_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_2_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_2_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_2_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_3_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_3_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_3_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_3_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_4_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_4_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_4_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_4_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_5_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_5_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_5_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_5_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_6_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_6_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_6_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_6_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_7_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_7_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_7_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_7_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_8_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_8_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_8_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_8_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_9_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_9_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_9_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_9_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_10_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_10_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_10_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_10_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_11_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_11_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_11_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_11_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_12_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_12_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_12_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_12_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_13_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_13_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_13_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_13_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_14_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_14_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_14_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_14_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_1_link_15_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_1_link_15_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_1_link_15_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_1_link_15_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+        </div>
+      </div>
+    </section>
+	{{/if}}
+  {{#if settings.fe_fd_grid_2_active}}
+    <section id="fe-fd-link-grid-2">
+      <div class="accordion-header govuk-!-margin-bottom-6 govuk-!-margin-top-9">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_title}}</h2>
+        <a href="#" class="govuk-link" data-accordion-link="fe-fd-link-grid-2"><span data-accordion-state>Hide</span> <span class="lower-case">{{settings.fe_fd_grid_2_title}}</span></a>
+      </div>
+      <div class="section-body" data-accordion-body="fe-fd-link-grid-2">
+        <div class="feature-panels feature-panels--grid">
+          {{#if settings.fe_fd_grid_2_link_1_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_1_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_1_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_1_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_2_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_2_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_2_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_2_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_3_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_3_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_3_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_3_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_4_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_4_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_4_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_4_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_5_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_5_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_5_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_5_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_6_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_6_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_6_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_6_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_7_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_7_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_7_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_7_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_8_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_8_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_8_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_8_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_9_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_9_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_9_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_9_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_10_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_10_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_10_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_10_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_11_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_11_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_11_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_11_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_12_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_12_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_12_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_12_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_13_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_13_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_13_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_13_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_14_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_14_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_14_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_14_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+          {{#if settings.fe_fd_grid_2_link_15_title}}
+            <div class="feature-panels__panel feature-panels__panel--front-door">
+              <a class="feature-panels__panel__link" href="{{settings.fe_fd_grid_2_link_15_url}}" target="_blank">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{settings.fe_fd_grid_2_link_15_title}}</h3>
+                <p class="govuk-body">{{settings.fe_fd_grid_2_link_15_body}}</p>
+              </a>
+            </div>
+          {{/if}}
+        </div>
+      </div>
+    </section>
+  {{/if}}
+  {{#if settings.fe_fd_list_active}}
+    <section id="fe-fd-link-list">
+      <div class="accordion-header govuk-!-margin-bottom-6 govuk-!-margin-top-9">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">{{settings.fe_fd_list_title}}</h2>
+        <a href="#" class="govuk-link" data-accordion-link="fe-fd-link-list"><span data-accordion-state>Hide</span> <span class="lower-case">{{settings.fe_fd_list_title}}</span></a>
+      </div>
+      <div class="section-body" data-accordion-body="fe-fd-link-list">
+        <ul class="govuk-list govuk-!-margin-bottom-0">
+          {{#if settings.fe_fd_list_link_1_title}}
+            <li class="govuk-!-margin-bottom-4">
+              <a class="govuk-link" href="{{settings.fe_fd_list_link_1_url}}" target="_blank">{{settings.fe_fd_list_link_1_title}}</a>
+            </li>
+          {{/if}}
+          {{#if settings.fe_fd_list_link_2_title}}
+            <li class="govuk-!-margin-bottom-4">
+              <a class="govuk-link" href="{{settings.fe_fd_list_link_2_url}}" target="_blank">{{settings.fe_fd_list_link_2_title}}</a>
+            </li>
+          {{/if}}
+          {{#if settings.fe_fd_list_link_3_title}}
+            <li class="govuk-!-margin-bottom-4">
+              <a class="govuk-link" href="{{settings.fe_fd_list_link_3_url}}" target="_blank">{{settings.fe_fd_list_link_3_title}}</a>
+            </li>
+          {{/if}}
+          {{#if settings.fe_fd_list_link_4_title}}
+            <li class="govuk-!-margin-bottom-4">
+              <a class="govuk-link" href="{{settings.fe_fd_list_link_4_url}}" target="_blank">{{settings.fe_fd_list_link_4_title}}</a>
+            </li>
+          {{/if}}
+          {{#if settings.fe_fd_list_link_5_title}}
+            <li class="govuk-!-margin-bottom-4">
+              <a class="govuk-link" href="{{settings.fe_fd_list_link_5_url}}" target="_blank">{{settings.fe_fd_list_link_5_title}}</a>
+            </li>
+          {{/if}}
+          {{#if settings.fe_fd_list_link_6_title}}
+            <li class="govuk-!-margin-bottom-4">
+              <a class="govuk-link" href="{{settings.fe_fd_list_link_6_url}}" target="_blank">{{settings.fe_fd_list_link_6_title}}</a>
+            </li>
+          {{/if}}
+        </ul>
+      </div>
+    </section>
+  {{/if}}
+</div>
+<a href="#" class="scroll-to-top" title="Back to top" data-scroll-to-top>
+  <svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M2 13L11 4L20 13" stroke="white" stroke-width="5"/>
+	</svg>
+</a>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  	frontDoor('{{settings.fe_fd_calendar_api_key}}', '{{settings.fe_fd_calendar_data_source}}');
+  });
+</script>
+<script src="{{asset 'tavo-calendar.js'}}"></script>

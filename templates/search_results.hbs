@@ -1,0 +1,248 @@
+<!-- Code for the search results page -->
+<div class="govuk-width-container search_results_page govuk-!-margin-bottom-9">
+	<div class="govuk-breadcrumbs govuk-!-padding-left-0">	<a href="/hc/en-gb" class="govuk-back-link" data-back-link="topic">Back</a>
+	</div>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			 {{search submit=true class='app-search app-search--black-border' placeholder='Search ESFA support'}}
+		</div>
+	</div>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<div class=" collapsible-nav-border">
+				<h1 class="govuk-heading-xl govuk-!-margin-bottom-6 govuk-!-margin-top-6">Search results for ‘{{query}}’</h1>
+			</div>
+		</div>
+	</div>{{!--Primary filters !--}}
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-one-third">
+			<table class="govuk-table govuk-!-margin-bottom-0">{{#if help_center.community_enabled}}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">
+						<h4 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-4">Section:</h4> 
+						<section class="govuk-!-margin-bottom-2">
+							<div class="govuk-radios govuk-radios--small">{{#each filters}} {{#isnt name 'All types'}}
+								<div class="govuk-radios__item radiotype">{{#is name 'Articles'}}
+									<input class="govuk-radios__input articleresults" type="radio" id="namefilteroptions{{name}}" name="radioselectsearchpage2" name="radioselectsearchpage2" value="{{name}}" onclick="window.location='{{url}}&articles=true';">
+									<label for="namefilteroptions{{name}}" value="{{name}}" class="govuk-label govuk-radios__label{{#if @last}} govuk-!-padding-bottom-4{{/if}} search-result-filter-label">ESFA help articles</label>{{/is}} {{#is name 'Community'}}
+									<input class="govuk-radios__input communityresults" type="radio" id="namefilteroptions{{name}}" name="radioselectsearchpage2" value="{{name}}" onclick="window.location='{{url}}';">
+									<label for="namefilteroptions{{name}}" value="{{name}}" class="govuk-label govuk-radios__label govuk-!-padding-bottom-2 govuk-!-padding-top-2 search-result-filter-label">Peer-led discussion posts</label>{{/is}}</div>{{/isnt}} {{/each}}
+              <!--Add a setting or manifest property around this as a wrapper-->
+                  {{#if settings.news_search}}
+                 <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="fenews-select" name="radioselectsearchpage2" onclick="window.location='/hc/en-gb/search?filter_by=knowledge_base&query={{query}}&fenews=true'" type="radio">
+                  <label class="govuk-label govuk-radios__label" for="fenews-select">
+                    News
+                  </label>
+      				</div>
+                {{/if}}
+              <!--Add a closing manifest property or setting-->
+              </div>
+						</section>
+					</td>
+				</tr>{{!--Help Centre results--}}
+				<tr class="govuk-table__row" id="HelpCentreResults">
+					<td class="govuk-table__cell">
+						<h4 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-4">Intended audience:</h4> 
+						<div id="collapsesidebar-community">
+							<section class="govuk-!-margin-bottom-2 margin-bottom-zero">
+								<div class="govuk-radios govuk-radios--small ">
+									<div class="govuk-radios__item hcradiolabeloptions">
+										<input class="govuk-radios__input" value="Further education and training providers, Maintained schools, Acadmies, Local authorities" type="radio" id="namesubfilteroptionsAll Topics" name="radioselectsearchpage3" checked="checked" data-communitytopic="">
+										<label for="namesubfilteroptionsAll Topics" value="All Topics" class="govuk-label govuk-radios__label govuk-!-padding-bottom-2 govuk-!-padding-top-2 search-result-filter-label">All audiences</label>
+									</div>
+									<div class="govuk-radios__item hcradiolabeloptions">
+										<input class="govuk-radios__input" value="Academies" type="radio" id="namesubfilteroptionsAcademies" name="radioselectsearchpage3" data-communitytopic="360001175738">
+										<label for="namesubfilteroptionsAcademies" value="Academies" class="govuk-label govuk-radios__label govuk-!-padding-bottom-2 govuk-!-padding-top-2 search-result-filter-label">Academies</label>
+									</div>
+									<div class="govuk-radios__item hcradiolabeloptions">
+										<input class="govuk-radios__input" value="Maintained schools" type="radio" id="namesubfilteroptionsMaintained schools" name="radioselectsearchpage3" data-communitytopic="360001186858">
+										<label for="namesubfilteroptionsMaintained schools" value="Maintained schools" class="govuk-label govuk-radios__label govuk-!-padding-bottom-2 govuk-!-padding-top-2 search-result-filter-label">Maintained schools</label>
+									</div>
+									<div class="govuk-radios__item hcradiolabeloptions">
+										<input class="govuk-radios__input" value="Local authorities" type="radio" id="namesubfilteroptionsLocal authorities" name="radioselectsearchpage3" data-communitytopic="360001186878">
+										<label for="namesubfilteroptionsLocal authorities" value="Local authorities" class="govuk-label govuk-radios__label govuk-!-padding-bottom-2 govuk-!-padding-top-2 govuk-!-padding-bottom-4 search-result-filter-label">Local authorities</label>
+									</div>
+									<div class="govuk-radios__item hcradiolabeloptions">
+										<input class="govuk-radios__input feselect-news" value="Further education and training providers" type="radio" id="namesubfilteroptionsTraining Providers" name="radioselectsearchpage3" data-communitytopic="360000734138">
+										<label for="namesubfilteroptionsTraining Providers" value="Training Providers" class="govuk-label govuk-radios__label govuk-!-padding-bottom-2 govuk-!-padding-top-2 search-result-filter-label">Further education and training providers</label>
+									</div>
+								</div>
+							</section>
+						</div>
+					</td>
+				</tr>{{!--Community tagging--}}
+				<tr class="govuk-table__row" id="CommunityFilterResults">
+					<td class="govuk-table__cell">
+						<h4 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-4">Intended audience:</h4> 
+						<div id="collapsesidebar-community">
+							<section class="govuk-!-margin-bottom-2 margin-bottom-zero">
+								<div class="govuk-radios govuk-radios--small">
+									<div class="govuk-radios__item">
+										<input class="govuk-radios__input" value="" type="radio" id="hcALL" name="radioselectsearchpage4" onclick="window.location='/hc/en-gb/search?filter_by=community&amp;query={{query}}';">
+										<label for="hcALL" value="All Topics" class="govuk-label govuk-radios__label govuk-!-padding-bottom-2 govuk-!-padding-top-2 search-result-filter-label">All audiences</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input class="govuk-radios__input" value="Academies" type="radio" id="HCAcademies" name="radioselectsearchpage4" onclick="window.location='/hc/en-gb/search?filter_by=community&amp;query={{query}}&amp;topic={{settings.provider_academies}}&amp;utf8=%E2%9C%93&amp;CommunitySubfilter';">
+										<label for="HCAcademies" value="Academies" class="govuk-label govuk-radios__label govuk-!-padding-bottom-2 govuk-!-padding-top-2 search-result-filter-label">Academies</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input class="govuk-radios__input" value="Maintained schools" type="radio" id="HCMaintainedSchools" name="radioselectsearchpage4" onclick="window.location='/hc/en-gb/search?filter_by=community&amp;query={{query}}&amp;topic={{settings.provider_maintained_schools}}&amp;utf8=%E2%9C%93&amp;CommunitySubfilter';">
+										<label for="HCMaintainedSchools" value="Maintained schools" class="govuk-label govuk-radios__label govuk-!-padding-bottom-2 govuk-!-padding-top-2 search-result-filter-label">Maintained schools</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input class="govuk-radios__input" value="Local authorities" type="radio" id="HCLocalAuthorities" name="radioselectsearchpage4" onclick="window.location='/hc/en-gb/search?filter_by=community&amp;query={{query}}&amp;topic={{settings.provider_local_authorities}}&amp;utf8=%E2%9C%93&amp;CommunitySubfilter';">
+										<label for="HCLocalAuthorities" value="Local authorities" class="govuk-label govuk-radios__label govuk-!-padding-bottom-2 govuk-!-padding-top-2 search-result-filter-label">Local authorities</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input class="govuk-radios__input" value="Training Providers" type="radio" id="HCFEselect" name="radioselectsearchpage4" onclick="window.location='/hc/en-gb/search?filter_by=community&amp;query={{query}}&amp;topic={{settings.topic_id}}&amp;utf8=%E2%9C%93&amp;CommunitySubfilter';">
+										<label for="HCFEselect" value="Training Providers" class="govuk-label govuk-radios__label govuk-!-padding-bottom-2 govuk-!-padding-top-2 search-result-filter-label">Further education and training providers</label>
+									</div>
+								</div>
+							</section>
+						</div>
+					</td>{{/if}}
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell" style="border:none;">
+							<h4 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-4">Other helpful resources</h4>  <a href="https://help.apprenticeships.education.gov.uk/hc/en-gb" class="govuk-link" style="display:block;">Apprenticeship service support</a>
+              <a href="https://support.tlevels.gov.uk/hc/en-gb" class="govuk-link  govuk-!-padding-top-2" style="display:block;">T-levels support</a>
+						</td>
+					</tr>
+			</table>
+		</div>
+    
+    {{!-- Results start --}}
+		<section id="main-search-content" class="govuk-grid-column-two-thirds govuk-!-padding-top-2">
+			<div id="resultstype"></div>
+			<div id="sresults" style="display:none"></div>
+			<nav class="pagination CommunityPagination">
+				<ul class="pagination-list govuk-list govuk-list--bullet">
+					<li class="hcpaginationprev pagination-prev" style="display: none;">
+						<a href="" class="prev pagination-prev-link govuk-link" rel="prev nofollow"> <span class="pagination-prev-icon" aria-hidden="true">‹</span>
+							<span class="hcpaginationprev pagination-prev-text">Previous</span>
+						</a>
+					</li>
+					<li class="hcpaginationnext pagination-next" value="0" style="display: none;">
+						<a id="category-next-page" href="" class="next pagination-next-link govuk-link" rel="next nofollow"> <span class="pagination-next-text">Next</span>
+							<span class="pagination-next-icon" aria-hidden="true">›</span>
+						</a>
+					</li>
+				</ul>
+			</nav>{{!--Community results--}} 
+      
+      {{#if results}} 
+      	{{#each results}} 
+					
+      		{{#is type 'community_post'}}
+			<!-- Results Start -->
+			<div class="resultCommunities resultsNewsArticles collapsible-nav-border govuk-!-padding-top-4">
+				<div class="search-results-box">
+					<div>
+						<h3 class="govuk-heading-s govuk-!-margin-bottom-1 govuk-!-margin-right-1">
+                  <a class="govuk-link" href="{{url}}">{{title}}</a>
+                  
+                </h3>
+						<p class="govuk-body govuk-!-margin-bottom-2">Last updated {{date created_at}}</p>
+					</div>
+					<div id="resultvotesinformation"> <span class="search-result-votes govuk-!-margin-right-1">
+                  <span aria-hidden="true">
+                    <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5.83366 18.3334H3.33366C2.89163 18.3334 2.46771 18.1578 2.15515 17.8452C1.84259 17.5326 1.66699 17.1087 1.66699 16.6667V10.8334C1.66699 10.3913 1.84259 9.9674 2.15515 9.65484C2.46771 9.34228 2.89163 9.16669 3.33366 9.16669H5.83366M11.667 7.50002V4.16669C11.667 3.50365 11.4036 2.86776 10.9348 2.39892C10.4659 1.93008 9.83003 1.66669 9.16699 1.66669L5.83366 9.16669V18.3334H15.2337C15.6356 18.3379 16.0256 18.197 16.3319 17.9367C16.6382 17.6764 16.8401 17.3141 16.9003 16.9167L18.0503 9.41669C18.0866 9.17782 18.0705 8.93392 18.0031 8.7019C17.9357 8.46987 17.8187 8.25527 17.6602 8.07295C17.5017 7.89063 17.3054 7.74496 17.085 7.64603C16.8645 7.54711 16.6252 7.49728 16.3837 7.50002H11.667Z" stroke="#0B0C0C" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="govuk-body govuk-!-font-size-19 search-result-value">{{vote_sum}}</span>
+						</span>
+						</span> <span class="search-result-meta-count">
+                  <span aria-hidden="true">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.625 10.875C15.625 11.2949 15.4582 11.6977 15.1613 11.9946C14.8643 12.2915 14.4616 12.4583 14.0417 12.4583H4.54167L1.375 15.625V2.95833C1.375 2.53841 1.54181 2.13568 1.83875 1.83875C2.13568 1.54181 2.53841 1.375 2.95833 1.375H14.0417C14.4616 1.375 14.8643 1.54181 15.1613 1.83875C15.4582 2.13568 15.625 2.53841 15.625 2.95833V10.875Z" stroke="#0B0C0C" stroke-width="1.58333" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="govuk-body govuk-!-font-size-19 search-result-value">{{comment_count}}</span>
+						</span>
+						</span>
+					</div>
+					<!-- Results End -->
+				</div>
+        <div class="govuk-tag-list">
+          {{#is type 'community_post'}}
+          	<span class="govuk-tag govuk-tag--small govuk-tag--peerledDiscussionPosts govuk-!-margin-bottom-2 govuk-!-margin-right-2">Peer-led discussion posts</span>
+          	{{#each path_steps}}
+          		{{#if @last}}
+          			<span class="govuk-tag govuk-tag--small govuk-!-margin-bottom-2 govuk-!-margin-right-2" data-custom-tag>{{name}}</span>
+          		{{/if}}
+          	{{/each}}
+          {{/is}}
+          {{#is type 'article'}}
+          	<span class="govuk-tag govuk-tag--small govuk-tag--esfaHelpArticles govuk-!-margin-bottom-2 govuk-!-margin-right-2">ESFA help articles</span>
+          	{{#each path_steps}}
+          		{{#if @last}}
+          			<span class="govuk-tag govuk-tag--small govuk-!-margin-bottom-2 govuk-!-margin-right-2" data-custom-tag>{{name}}</span>
+          		{{/if}}
+          	{{/each}}
+          {{/is}}
+        </div>
+				<article class="govuk-!-margin-top-1">
+					<p class="govuk-body search-result-text">{{text}}</p>
+				</article>
+			</div> 
+      {{/is}}
+      {{/each}}
+			<div class="communitiesRespagination" style="display:none"><div class="communitypagination" data-apply-gds style="display:none">{{pagination}}</div></div>{{else}}
+			<p class="govuk-body govuk-!-padding-bottom-4 govuk-!-padding-top-4 communitiesResults">No results found. {{t 'no_results_unified'}}</p>{{/if}}
+    <script>
+      
+      function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,    
+    function(m,key,value) {
+      vars[key] = value;
+    });
+    return vars;
+  }
+
+var fType = getUrlVars()["topic"];
+   
+      switch(fType) {
+          case "{{settings.provider_academies}}":
+            text = "Academies";
+      			$("#HCAcademies").prop("checked",!0)
+            
+            break;
+          case "{{settings.provider_maintained_schools}}":
+            text = "Maintained schools";
+            break;
+          case "{{settings.provider_local_authorities}}":
+            text = "Local authorities";
+            break;
+          default:
+            text = "Further education and training providers";
+			}
+      
+      </script>
+    
+    
+    </section>
+	</div>
+</div>{{!Script for the search results page}}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  	var query = '{{query}}';
+  	var currentPageType = '';
+  	var currentSelectedName = '';
+  
+    // Set the variable for the main filter
+    {{#each filters}}
+      {{#if selected}}	
+        currentPageType = '{{name}}';
+      {{/if}}
+    {{/each}}
+  
+    // Set the variable for the current topic selected
+    {{#each subfilters}}
+      {{#if selected}}	
+        currentSelectedName = '{{name}}'; 
+      {{/if}}
+    {{/each}}
+  
+    searchResults(query, currentPageType, currentSelectedName);
+  });
+</script>

@@ -1,0 +1,136 @@
+<!-- Code for the back link -->  
+<div class="govuk-width-container">
+    <div class="govuk-breadcrumbs govuk-!-margin-top-6 govuk-!-margin-bottom-6">  
+      <ol class="breadcrumbs">
+        <li title="Home"><a href="/hc/en-gb/">Home</a></li>
+        
+        <li title="Communities"><a href="{{dc 'esfa_help_centre_-_home'}}" id="">ESFA Help Centre</a></li> 
+      </ol>
+    </div>
+   
+     <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds govuk-!-margin-top-0">
+         <div>
+             {{search submit=true class='app-search app-search--black-border' placeholder='Search ESFA support'}}
+           </div>
+       </div>
+     </div>  
+   
+ <!-- Code for inserting title on page and populating the name of the article as title --> 
+   <div class="govuk-main-wrapper govuk-!-padding-bottom-2 govuk-!-margin-bottom-6  govuk-!-padding-top-6" style="border-bottom: 1px solid #BFC1C3;">
+     <div class="govuk-grid-row">
+         <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-0">
+           <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{article.title}}</h1>
+           <div class="govuk-tag-list">
+         	 {{#if article.promoted}}
+             <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-2 govuk-!-margin-right-2">New</strong>
+           {{/if}}
+           {{#each article.labels}}
+             <strong class="govuk-tag govuk-!-margin-bottom-2 govuk-!-margin-right-2" data-custom-tag>{{identifier}}</strong>
+           {{/each}}
+         </div>
+     </div>
+   </div>
+ </div>
+
+<div class="govuk-width-container">
+	<main class="govuk-main-wrapper govuk-!-padding-top-0 govuk-!-padding-bottom-0">
+		<div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+      <div class="linespacing">
+          <p class="govuk-body govuk-!-font-size-14 govuk-!-margin-bottom-1 pstyling">Published {{date article.created_at timeago=false}}</p>        
+          <p class="govuk-body govuk-!-font-size-14 govuk-!-margin-bottom-1 pstyling">Last updated {{date article.updated_at timeago=false}}</p>
+          <p class="govuk-body govuk-!-font-size-14 govuk-!-margin-bottom-6 pstyling">From: <a class="govuk-link govuk-link--no-visited-state govuk-!-font-weight-bold" href="https://www.gov.uk/government/organisations/education-and-skills-funding-agency">Education and Skills Funding Agency</a></p> 
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds" data-apply-gds>
+      <!-- Code to add the body of the article and display it underneath the updated box --> 
+      {{article.body}}
+    </div>
+  </div>
+    
+   <!-- <details class="govuk-details govuk-!-margin-bottom-9 govuk-!-margin-top-2" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Services accessed using DfE Sign-in
+    </span>
+  </summary>
+  <div class="govuk-details__text govuk-!-padding-left-2 govuk-!-margin-left-2 govuk-!-margin-top-2">
+   Scelerisque amet, dolor integer quisque dictum. Ut penatibus urna.
+  </div>
+</details> -->
+    
+<section class="app-section govuk-!-padding-bottom-9 govuk-!-padding-top-6 article_page article_page article_border_top">
+	<div class="govuk-width-container">  
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-6">Other ways to get help</h2>
+    <div class="feature-panels">
+      <div class="feature-panels__panel">
+        <div class="feature-panels__panel__inner">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link" href="{{dc 'esfa_help_centre_-_communities'}}">Talk to our community</a></h3>
+          <p class="govuk-body">Discuss topics on further education and skills with other providers.</p>  
+        </div>
+      </div>
+      <div class="feature-panels__panel">
+        <div class="feature-panels__panel__inner">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link" href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen">Contact us</a></h3>
+          <p class="govuk-body">Use our web form to submit an enquiry.</p>
+        </div>
+      </div>
+    </div>
+	</div>
+</section>
+    
+</main>
+  </div>
+            {{#with article}}
+              <!-- Code for the votes and to record and capture the vote that the user has selected --> 
+              <div id="feedbackcontainerarticle">
+                <div class="govuk-width-container" style="background-color: #1D70B8; margin-left:0px; word-wrap:break-word; line-spacing:1.6em;">
+                  <div class="article-vote govuk-!-margin-top-2 articlevotesstyle govuk-!-padding-bottom-2 govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-right-0" style="margin-bottom: -10px;">
+                    <div id="feedbackbuttonyes">
+                      <p class="govuk-body govuk-!-margin-0 vote-prompt" id="voteQuestion"><span id="isPageUseful" class="govuk-!-font-weight-bold">Is this page useful?</span>
+                        {{vote 'up' role='link' id="votedyes" class='article-voted-up govuk-link button-underline-article govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-0 govuk-!-margin-left-3 govuk-!-margin-right-2 vote-prompt__button' selected_class="voted"}}
+                        {{vote 'down' role='link' id="votedno" class='article-voted-down govuk-link button-underline-article govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-0 govuk-!-margin-left-2 vote-prompt__button' selected_class='voted'}}
+                        {{#vote 'up' class='vote-confirm govuk-link govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-0 govuk-!-margin-left-3 vote-prompt__button vote-prompt__button--change'}}<span class="button-underline-article">Change feedback</span>{{/vote}}
+                      </p>
+                      <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-0 vote-prompt" id="voteResponse" style="display: none;">Thank you for your feedback</p>
+                    </div>
+                  </div>
+                </div>
+            {{/with}}
+            <div id="commentform" class="govuk-grid-row govuk-!-margin-top-3">
+            	<div class="govuk-grid-column-two-thirds">
+              	<form id="formoid" action="/api/v2/requests.json" title="articlefeedback" method="post">
+                  <div class="govuk-character-count govuk-!-margin-top-4">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="Comment">Is there anything we could do to further improve this page? (optional)</label>
+                      <textarea class="govuk-textarea govuk-js-character-count" id="Comment" name="Comment" rows="5" aria-describedby="Comment-info"></textarea>
+                    </div>
+                    <div id="Comment-info" class="govuk-hint govuk-character-count__message" aria-live="polite">You have <span id="chars">500</span> characters remaining</div>
+                  </div>
+									<div class="govuk-!-margin-top-3">
+                  	<input class="govuk-button articlefeedbackbutton" type="submit" id="submitButton" name="submitButton" value="Submit">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div> 
+</div>
+    <div id="relatedcontentbar" style="background: #1D70B8; height: 10px;"></div>
+    
+    <div id="ASservicebar" style="background: #003A69;">
+        <div class="govuk-width-container">
+            <h3 class="govuk-heading-m govuk-!-padding-bottom-4 govuk-!-padding-top-6 govuk-!-margin-top-0 govuk-!-margin-bottom-0" style="border-bottom: 1px solid #FFFFFF; color: #FFFFFF;">Other helpful resources</h3>
+            <div class="govuk-!-padding-bottom-4 govuk-!-padding-top-4">
+                <a href="https://help.apprenticeships.education.gov.uk/hc/en-gb" class="govuk-link footer-article-link ASLINK">Apprenticeships Service Support</a>
+              <a href="https://www.tlevels.gov.uk/" class="govuk-!-margin-left-6 govuk-link footer-article-link TLEVELS">T levels</a>
+            </div>
+        </div>
+    </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    articlePage('{{article.title}}');
+	});
+</script>

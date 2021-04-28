@@ -1,0 +1,236 @@
+<div class="govuk-width-container topicpage govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+	<div class="govuk-breadcrumbs">
+		<ol class="breadcrumbs">
+			<li title="Home">
+				<a href="/hc/en-gb/">Home</a>
+			</li>
+		</ol>
+	</div>
+</div>
+<section class="app-section app-section--navy govuk-!-margin-top-3">
+	<div class="govuk-width-container">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-full">
+				<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">{{#is topic.name 'Further education and training providers'}}Further education and training providers community{{else}}Academies and maintained schools community{{/is}}</h1>
+				<p class="govuk-body govuk-!-margin-bottom-0">{{topic.description}}</p>
+				<p class="govuk-body govuk-!-margin-bottom-0">Read the <a class="govuk-link" href="/hc/en-gb/articles/{{settings.community_guidelines_id}}">community guidelines</a> to help you get the most out of the forum.</p>
+				<p class="govuk-body govuk-!-margin-bottom-6">If you have any issues using this service, email <a class="govuk-link" href="mailto:customer.experience@education.gov.uk">customer.experience@education.gov.uk</a>.</p>
+			</div>
+			<div class="govuk-grid-column-two-thirds">
+            {{search submit=true class='app-search' scoped=true placeholder='Search ESFA support'}}
+         </div>
+		</div>
+	</div>
+</section>
+<div class="govuk-width-container">
+	<div class="govuk-main-wrapper govuk-!-margin-top-4">
+		<div class="govuk-width-container">
+      <div id="pendingapproval" class="subscribebuttonstopic govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="display:none;">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full govuk-!-padding-left-3">
+          <div class="text user-pending-approval">
+            <h4 class="govuk-heading-s  govuk-!-margin-bottom-0">You will be able to post, reply and subscribe once the ESFA approves your account for this community.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+			<div class="govuk-grid-row govuk-!-margin-left-0 govuk-!-margin-right-0">
+				<div class="govuk-grid-column-full display-flex-postlist govuk-!-margin-bottom-6" style="border-bottom: 1px solid #BFC1C3;">
+					<div class="display-flex-postlist__signinbutton"> 
+           {{#if signed_in}}
+             
+						
+						<input type="button" class="createnew createnewsignedin govuk-button govuk-!-margin-bottom-0" onclick="location.href='/hc/en-gb/community/posts/new?community_post[topic_id]={{topic.id}}';" value="Create new post" />
+						<div class="subspanel-wrapper">
+							<button id="subtopicbutton" class="community-sub-topic govuk-button govuk-!-margin-bottom-6">
+								<span>Subscribe to {{topic.name}}</span>
+								<svg id="chevronup" width="12" height="8" viewBox="0 0 14 8" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 1L7 7L13 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+								<svg id="chevrondown" width="12" height="8" viewBox="0 0 12 8" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path d="M11 6.5L6 1.5L1 6.5" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</button>
+							<div id="subspanel">
+								<ul>
+									<li>
+										<a id="subwithoutcomments" class="govuk-link govuk-!-font-size-19">Subscribe to posts</a>
+									</li>
+									<li>
+										<a id="subwithcomments" class="govuk-link govuk-!-font-size-19">Subscribe to posts and replies</a>
+									</li>
+									<li id="unsubfromtopiclist">
+										<a id="unsubfromtopic" class="govuk-link govuk-!-font-size-19">Unsubscribe</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+           {{else}}
+                       {{#link "sign_in"}}
+						<span class="createnew createnewsignedin govuk-button govuk-!-margin-bottom-6">Sign in to create a post</span>
+            						{{/link}}
+           {{/if}}
+					</div>
+          <div class="display-flex-postlist__sortby govuk-!-margin-bottom-6">
+           <label class="govuk-label display-flex-postlist--bold" for="tl-community-sortby">Sort by:</label>
+              <select name="sortby" class="govuk-select" id="tl-community-sortby" onchange="if (this.value) window.location.href=this.value">
+                {{#each sorters}}
+                  {{#is name 'Votes'}}
+                  {{else}}
+                    <option value="{{url}}" {{#if selected}} selected {{/if}}>
+                      {{#is name 'Newest post'}}
+                        Newest posts
+                      {{else}}
+                        {{#is name 'Recent activity'}}
+                          Latest activity
+                        {{else}}
+                          {{#is name 'Comments'}}
+                            Most replies
+                          {{else}}
+                            {{name}}
+                          {{/is}}
+                        {{/is}}
+                      {{/is}}
+                    </option>
+                {{/is}}
+              {{/each}}
+            </select>
+          </div>
+				</div>
+				<div id="topicnotification" class="subscribebuttonstopic govuk-!-margin-top-0 govuk-!-margin-bottom-6">
+					<div class="govuk-grid-row">
+						<div class="govuk-grid-column-full govuk-!-padding-left-3">
+							<div class="text" style="border: 5px solid #00703C; padding: 20px; font-family: GDS Transport; font-style: normal; font-weight: bold; font-size: 19px; line-height: 26px; color: #00703C;">
+								<!--Only display the new post button if the user is logged in-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+      {{#isnt topic.name 'Further education and training providers'}}
+			<div class="govuk-grid-column-full">
+				<div class="govuk-form-group">
+					<form>
+						<fieldset class="govuk-fieldset">
+							<div class="govuk-radios govuk-radios--small radio-override">
+								<div class="govuk-radios__item">
+									<input class="govuk-radios__input" id="academies-radio" {{#is topic.name 'Academies'}}checked="checked"{{/is}} name="provider" type="radio" value="{{settings.provider_academies}}-Academies?sort_by=created_at">
+										<label class="govuk-label govuk-radios__label" for="academies-radio">
+                  Academies
+                </label>
+									</div>
+									<div class="govuk-radios__item">
+										<input class="govuk-radios__input" id="maintained-schools-radio" {{#is topic.name 'Maintained schools'}}checked="checked"{{/is}} name="provider" type="radio" value="{{settings.provider_maintained_schools}}-Maintained-schools?sort_by=created_at">
+											<label class="govuk-label govuk-radios__label" for="maintained-schools-radio">
+                  Maintained schools
+                </label>
+										</div>
+										<div class="govuk-radios__item">
+											<input class="govuk-radios__input" id="local-authorities-radio" {{#is topic.name 'Local authorities'}}checked="checked"{{/is}} name="provider" type="radio" value="{{settings.provider_local_authorities}}-Local-authorities-?sort_by=created_at">
+												<label class="govuk-label govuk-radios__label" for="local-authorities-radio">
+                  Local authorities
+                </label>
+											</div>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					{{/isnt}}
+						<dl id="posts" class="govuk-summary-list">
+							<div class="govuk-summary-list__row ">
+								<div class="govuk-summary-list__key padding-left-0 community-topic-post__dt">Posts</div>
+								<div class="govuk-summary-list__value hide-on-postlist-mob community-topic-post__dd govuk-!-font-weight-bold">
+       						Replies
+								</div>
+							</div>
+            	{{#each featured_posts}}
+              <div class="govuk-summary-list__row govuk-!-padding-bottom-4 govuk-!-padding-top-4 govuk-!-margin-bottom-2 govuk-!-margin-top-2" style="background-color: rgba(255, 221, 0, 0.1)">
+								<dt class="govuk-summary-list__value govuk-!-padding-top-4 govuk-!-padding-bottom-4 govuk-!-margin-bottom-0">
+									<a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3 font-weight-300" style="display:block;" href="{{url}}" title="{{title}}">{{title}}</a>
+									<strong class="govuk-tag govuk-!-margin-left-2 govuk-!-margin-top-2 govuk-tag--blue">Featured</strong>
+								</dt>
+								<dd class="govuk-summary-list__value govuk-!-margin-bottom-0">
+									<span class="dislay-mobile-postlist">{{comment_count}} Replies </span>
+									<span class="display-desktop-meta">{{comment_count}}</span>
+								</dd>
+							</div>
+        			{{/each}}
+           {{#each posts}}
+              <div class="govuk-summary-list__row govuk-!-margin-bottom-0"{{#if pinned}} style="background-color: rgba(255, 221, 0, 0.1)"{{/if}}>
+                <dt class="govuk-summary-list__key govuk-!-padding-top-4 govuk-!-padding-bottom-4 govuk-!-margin-bottom-0  community-topic-post__dt">
+                  <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3 font-weight-300" style="display:block;" href="{{url}}" title="{{title}}">{{title}}</a>
+                  <div class="govuk-tag-list govuk-!-margin-left-1">
+                    {{#if pinned}}
+                      <strong class="govuk-tag govuk-!-margin-left-2 govuk-!-margin-top-2 govuk-tag--blue">Pinned</strong>
+                    {{/if}}
+                    {{#is ../topic.name 'Academies'}}
+                      <strong class="govuk-tag govuk-!-margin-left-2 govuk-!-margin-top-2 govuk-tag--academies">Academies</strong>
+                    {{/is}}
+                    {{#is ../topic.name 'Maintained schools'}}
+                      <strong class="govuk-tag govuk-!-margin-left-2 govuk-!-margin-top-2 govuk-tag--maintainedSchools">Maintained schools</strong>
+                    {{/is}}
+                    {{#is ../topic.name 'Local authorities'}}
+                      <strong class="govuk-tag govuk-!-margin-left-2 govuk-!-margin-top-2 govuk-tag--localAuthorities">Local Authorities</strong>
+                    {{/is}}
+                  </div>
+                </dt>
+                <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 community-topic-post__dd">
+                  <span class="dislay-mobile-postlist">{{comment_count}} replies</span>
+                  <span class="display-desktop-meta">{{comment_count}}</span>
+                </dd>
+              </div>
+            {{/each}}
+					</dl>
+					<div data-apply-gds>
+      	{{pagination}}
+    </div>
+				</div>
+			</div>
+		</div>
+		<script>
+      document.addEventListener('DOMContentLoaded', function(e) {
+        $("input[type='radio'][name='provider']").on('change', function() {
+          localStorage.setItem('topicUrlPreference', '/hc/en-gb/community/topics/' + $(this).val());
+          window.location.href = $(this).val();
+        });
+      });
+      
+      
+      {{#isnt topic.name 'Further education and training providers'}}
+        $(document).ready(function(){
+                  var TopicName = '{{topic.name}}';
+                  // Check which topic the user is viewing. 	
+                switch(TopicName.toLowerCase()) {
+                    case "academies":
+                      $('#academies-radio').prop('checked',true);
+                      break;
+                    case "maintained schools":
+                      $('#maintained-schools-radio').prop('checked',true);
+                      break;
+                    case "local authorities":
+                      $('#local-authorities-radio').prop('checked',true);
+                      break
+                    default:
+                        $('#academies-radio').prop('checked',true);
+                }
+      	});
+              {{/isnt}}
+      
+      
+		</script>
+{{#if signed_in}}
+  <script>
+    {{#is topic.name 'Further education and training providers'}}
+    	var topicType = 'FE';
+    {{else}}
+    	var topicType = 'AMS';
+    {{/is}}
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      communityTopicPage('{{topic.id}}', '{{topic.name}}')
+    });
+  </script>
+{{/if}}

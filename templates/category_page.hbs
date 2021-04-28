@@ -1,0 +1,103 @@
+<script>
+	document.title = "Get help with ESFA services";
+</script>
+<div class="govuk-width-container">
+	<div class="govuk-breadcrumbs govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+		<ol class="breadcrumbs">
+			<li title="Home">
+				<a href="/hc/en-gb/">Home</a>
+			</li>
+		</ol>
+	</div>
+</div>
+<section class="app-section app-section--navy govuk-!-margin-top-6">
+	<div class="govuk-width-container">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-full">
+				<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">ESFA help centre</h1>
+				<p class="govuk-body-l govuk-!-margin-bottom-6" id="subheadinghelpcentre">Help articles and guidance for education providers using ESFA services.</p>
+			</div>
+			<div class="govuk-grid-column-two-thirds">
+				{{search submit=true class='app-search' placeholder='Search ESFA support'}}
+			</div>
+		</div>
+	</div>
+</section>
+<div class="govuk-width-container">
+	<h2 class="govuk-heading-l govuk-!-margin-top-9 govuk-!-margin-bottom-1">All articles</h2>
+	<span id="ShowingArticleCount" class="govuk-caption-m govuk-!-margin-top-0 govuk-!-padding-bottom-2 border-bottom-1px"></span>
+	<div class="govuk-grid-row govuk-!-padding-top-6 govuk-!-padding-bottom-9 border-bottom-1px">
+		<div class="govuk-grid-column-one-quarter">
+			<div class="govuk-form-group border-bottom-1px">
+				<fieldset class="govuk-fieldset govuk-!-padding-bottom-6">
+					<legend class="govuk-fieldset__legend govuk-fieldset__legend--m   govuk-!-margin-bottom-2">
+						<h4 class="govuk-fieldset__heading govuk-!-font-size-19">Filter by:</h4>
+					</legend>
+					{{#each sections}}
+						<div class="govuk-checkboxes govuk-checkboxes--small">
+							<div class="govuk-checkboxes__item">
+								<input class="govuk-checkboxes__input govuk-!-padding-bottom-2 govuk-!-padding-top-2" id="{{id}}checkbox" name="{{id}}checkbox" type="checkbox" value="{{name}}" checked />
+								<label class="govuk-label govuk-checkboxes__label govuk-!-padding-bottom-2 govuk-!-padding-top-2" for="{{id}}checkbox">{{name}}</label>
+							</div>
+						</div>
+					{{/each}}
+        </fieldset>
+      </div>
+    </div>
+    <div class="govuk-grid-column-three-quarters">
+      <div class="govuk-!-margin-bottom-2 govuk-!-margin-top-9" id="sspinner">
+        <div class="spinner">
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Loading results&hellip;</p>
+          <div class="spinner__animation"></div>
+        </div>
+      </div>
+      <div class="govuk-!-margin-bottom-2" id="sresults"></div>
+      <div data-apply-gds="">
+        <nav class="pagination">
+          <ul class="pagination-list govuk-list govuk-list--bullet">
+            <li class="pagination-prev" style="display: none;">
+              <a href="#" class="prev pagination-prev-link govuk-link" rel="prev nofollow">
+                <span class="pagination-prev-icon" aria-hidden="true">‹</span>
+                <span class="pagination-prev-text">Previous</span>
+              </a>
+            </li>
+            <li class="pagination-next">
+              <a id="category-next-page" href="#" class="next pagination-next-link govuk-link" rel="next nofollow">
+                <span class="pagination-next-text">Next</span>
+                <span class="pagination-next-icon" aria-hidden="true">›</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="app-section govuk-!-padding-bottom-9 govuk-!-padding-top-6 article_page">
+  <div class="govuk-width-container">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-6">Other ways to get help</h2>
+    <div class="feature-panels">
+      <div class="feature-panels__panel">
+        <div class="feature-panels__panel__inner">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a class="govuk-link" href="{{dc 'esfa_help_centre_-_communities'}}">Talk to our community</a>
+          </h3>
+          <p class="govuk-body">Discuss topics on further education and skills with other providers.</p>
+        </div>
+      </div>
+      <div class="feature-panels__panel">
+        <div class="feature-panels__panel__inner">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-2">
+            <a class="govuk-link" href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen">Contact us</a>
+          </h3>
+          <p class="govuk-body">Use our web form to submit an enquiry.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+  	categoryPage();
+	});
+</script>

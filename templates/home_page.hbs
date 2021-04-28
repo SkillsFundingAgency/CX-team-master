@@ -1,0 +1,87 @@
+<section class="app-section app-section--navy govuk-!-margin-top-6">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">{{settings.home_title}}</h1>
+        <p class="govuk-body-l govuk-!-margin-bottom-6" id="subheadinghomepage">{{settings.home_description}}</p>
+      </div>
+      <div class="govuk-grid-column-two-thirds">
+        <form role="search" class="app-search" data-search="" action="/hc/en-gb/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+          <input type="search" name="query" id="query" placeholder="Search ESFA support" aria-label="Search ESFA support">
+          <input type="submit" name="commit" value="Search">
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="govuk-width-container">
+  {{#if settings.home_resources_active}}
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-6 govuk-!-margin-top-9 feature-panels-header">Support</h2>
+  {{/if}}
+  <div class="feature-panels{{#unless settings.home_resources_active}} govuk-!-margin-bottom-6 govuk-!-margin-top-9{{/unless}}">
+    <div class="feature-panels__panel">
+      <div class="feature-panels__panel__inner">
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link" href="{{dc 'esfa_help_centre_-_home'}}">Read our help articles</a></h3>
+        <p class="govuk-body">Read our help articles and search for answers to your questions.</p>
+      </div>
+    </div>
+    <div class="feature-panels__panel">
+      <div class="feature-panels__panel__inner">
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Talk to our community</h3>
+        <p class="govuk-body">Discuss topics on further education and skills with other providers.</p>
+      </div>
+      <ul class="govuk-list">
+        <li class="govuk-!-margin-bottom-4">
+          <a class="govuk-link govuk-!-font-size-16" href="/hc/en-gb/community/topics/360000779360-Further-education-and-training-providers">Further education and training providers</a>
+        </li>
+        <li class="govuk-!-margin-bottom-4">
+          <a class="govuk-link govuk-!-font-size-16" href="/hc/en-gb/community/topics/{{settings.provider_academies}}-Academies" id="topicLink">Academies and maintained schools</a>
+        </li>
+      </ul>
+    </div>
+    <div class="feature-panels__panel">
+      <div class="feature-panels__panel__inner">
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link" href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen">Contact us</a></h3>
+        <p class="govuk-body">Use our web form to submit an enquiry.</p>
+      </div>
+    </div>
+  </div>
+  {{#if settings.home_resources_active}}
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-6 govuk-!-margin-top-9 feature-panels-header">Resources</h2>
+    <div class="feature-panels govuk-!-margin-bottom-6">
+      {{#if settings.fe_fd_active}}
+        <div class="feature-panels__panel">
+          <div class="feature-panels__panel__inner">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link" href="/hc/en-gb/categories/{{settings.fe_fd_page_id}}">{{settings.fe_fd_title}}</a></h3>
+            <p class="govuk-body">{{settings.fe_fd_home_page_description}}</p>
+          </div>
+        </div>
+      {{/if}}
+      {{#if settings.fd_2_active}}
+        <div class="feature-panels__panel">
+          <div class="feature-panels__panel__inner">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link" href="/hc/en-gb/categories/{{settings.fd_2_page_id}}">{{settings.fd_2_title}}</a></h3>
+            <p class="govuk-body">{{settings.fd_2_home_page_description}}</p>
+          </div>
+        </div>
+      {{/if}}
+      {{#if settings.fd_3_active}}
+        <div class="feature-panels__panel">
+          <div class="feature-panels__panel__inner">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a class="govuk-link" href="/hc/en-gb/categories/{{settings.fd_3_page_id}}">{{settings.fd_3_title}}</a></h3>
+            <p class="govuk-body">{{settings.fd_3_home_page_description}}</p>
+          </div>
+        </div>
+      {{/if}}
+    </div>
+  {{/if}}
+</div>
+
+<script>
+  var topicUrlPreference = localStorage.getItem('topicUrlPreference');
+
+  if (topicUrlPreference) {
+  	$('#topicLink').attr('href', topicUrlPreference);
+  }
+</script>
